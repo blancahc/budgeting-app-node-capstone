@@ -3,9 +3,7 @@ Live Pre-view available at https://budgeting-app-node-capstone.herokuapp.com/
 
 # Goal & Use Case
 
-???This is a simple communication app for someone suffering from ataxia or other language impairment. There are other apps for this condition but they typically require that the user know what words they are looking for in order to create a sentence.
-
-???My mother is a stroke survivor. She can read and she understands what people are saying but has difficulty finding words and knowing what word she wants. It is much easier for her to communicate with pictures. It is also difficult for her to respond to a question like, "Do you want eggs or cereal for breakfast?" She will nod her head yes to both but if she sees a picture, she will point to the one she wants and if there is a phrase under the picture, she can read it.
+This is a simple budgeting app where someone can create their own spending categories and subcategories for their budget each month and track expenses.
 
 
 
