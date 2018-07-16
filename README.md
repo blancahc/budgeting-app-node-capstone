@@ -72,3 +72,10 @@ As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUST
  *Add button at the top of the show all page that will show all edit buttons, otherwise hide all edit buttons
  *Allow users to capture their own images and add to app
   *Give options for user to change the background and card colors
+
+#  The typical command lines for capstone projects
+
+## Node command lines
+* npm install ==> install all node modules
+* nodemon server.js ==> run node server
+* npm test ==> run the tests
