@@ -12,26 +12,26 @@ This is a simple budgeting app where someone can create their own spending categ
 
 # User Stories & Initial UX
 As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUSTIFICATION}.'
-![UI Flow](ui-flow.jpg)
+![UI Flow](git-hub-images/ui-flow.jpg)
 **Landing Page**
 
 1. As a visitor, I want to land on the main page and understand what this website is about in order for me to use it.
-![Landing Page](landing-page.jpg)
+![Landing Page](git-hub-images/landing-page.jpg)
 
 2. As a visitor, I want to be able to easily sign-up to be able to use the application. In any page, I should be able to sign out.
-![Sign-Up Page](signup-page.jpg)
+![Sign-Up Page](git-hub-images/signup-page.jpg)
 
 3. As a user, I want to be able to land on the dasboard, and click around to easily understand how to use the application.
-![Dashboard Page](user-dashboard.jpg)
+![Dashboard Page](git-hub-images/user-dashboard.jpg)
 
 4. As a user, I want to easily create new budget categories and sub-categories and enter the amounts I plan to spend for each. I also want to be able to see the budgeted and actual spent for each.
-![Budget Page](budget-page.jpg)
+![Budget Page](git-hub-images/budget-page.jpg)
 
 5. As a user, I want to enter transactions and assign them to my categories and see a history of them. Those transactions, should automatically transfer to the budget page and add to the correct category/subcategory spent totals.
-![Transactions Page](transactions-page.jpg)
+![Transactions Page](git-hub-images/transactions-page.jpg)
 
 6. As a user, I want to see a chart showing totals for each category so I can get a quick visual of where my money is spent.
-![Chart Page](chart-page.jpg)
+![Chart Page](git-hub-images/chart-page.jpg)
 
 # Technical stack
 
