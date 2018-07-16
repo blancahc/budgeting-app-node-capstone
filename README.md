@@ -12,14 +12,27 @@ Live Pre-view available at https://budgeting-app-node-capstone.herokuapp.com/
 # Screenshots
 ???![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/landing-page.png)
 
-
-
 # User Stories & Initial UX
-As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUSTIFICATION}.
+As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUSTIFICATION}.'
+![UI Flow](ui-flow.jpg)
 **Landing Page**
-???Step 1. As a visitor, I want to land on the main page and understand what this website is about in order for me to use it.
-???![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/wireframe-images/site-info-page.png)
+Step 1. As a visitor, I want to land on the main page and understand what this website is about in order for me to use it.
+![Landing Page](landing-page.jpg)
 
+Step 2. As a visitor, I want to be able to easily sign-up to be able to use the application. In any page, I should be able to sign out.
+![Sign-Up Page](signup-page.jpg)
+
+Step 3. As a user, I want to be able to land on the dasboard, and click around to easily understand how to use the application.
+![Dashboard Page](user-dashboard.jpg)
+
+Step 4. As a user, I want to easily create new budget categories and sub-categories and enter the amounts I plan to spend for each. I also want to be able to see the budgeted and actual spent for each.
+![Budget Page](budget-page.jpg)
+
+Step 5. As a user, I want to enter transactions and assign them to my categories and see a history of them. Those transactions, should automatically transfer to the budget page and add to the correct category/subcategory spent totals.
+![Transactions Page](transactions-page.jpg)
+
+Step 6. As a user, I want to see a chart showing totals for each category so I can get a quick visual of where my money is spent.
+![Chart Page](chart-page.jpg)
 
 # Technical stack
 
