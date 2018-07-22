@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Muli', sans-serif;
+}
+
+html {
+    background: url("images/money-growth.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.largerFont {
+    font-size: 130%;
+}
+
+#appDescription {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    opacity: .8;
+    width: 70%;
+    margin: 0 auto 30px auto;
+}
+
+.navbar {
+    width: 100%;
+    background-size: 10% auto;
+    background-blend-mode: multiply;
+    padding: 1.2%;
+    font-size: 0;
+    margin-bottom: 30px;
+}
+
+.iconImg {
+    display: inline-block;
+    width: 150px;
+    border-radius: 8px;
+    opacity: .8;
+
+}
+
+
+#signoutButton {
+    font-size: 1.1rem;
+    float: right;
+    padding: 1%;
+    background-color: forestgreen;
+    border-radius: 7%;
+    margin-right: 2%;
+}
+
+
+#signoutButton:hover {
+    background-color: whitesmoke;
+    color: black;
+
+}
+
+.appName {
+    color: forestgreen;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background: inherit;
+    border: none;
+    color: inherit;
+}
+
+button:hover {
+    background-color: forestgreen;
+    color: #0E2E45;
+    cursor: pointer;
+}
+
+#form-text {
+    font-size: 1.3rem;
+    vertical-align: middle;
+    width: 90%;
+    text-align: center;
+    margin: 10px auto 0;
+    height: 22vh;
+}
+
+.form-text-section {
+    width: 100%;
+}
+
+#form-text p {
+    margin: 15px 0 0;
+}
+
+.sign-in-up-form {
+    width: 90%;
+    vertical-align: middle;
+    font-weight: 600;
+    margin: 0 auto 3% auto;
+    background-color: #FFFF;
+    color: #0E2E45;
+    max-width: 30%;
+    border-radius: 3%;
+    font-size: 1.3rem;
+    padding: 20px 0;
+    text-align: center;
+    opacity: .8;
+}
+
+.sign-in-up-form legend {
+    margin: 10px auto;
+    padding: 10px;
+    border-bottom: #0E2E45 solid 1px;
+    width: 85%;
+    font-size: 2rem;
+}
+
+.sign-in-up-form fieldset {
+    border: none;
+    padding: 0 2rem;
+    line-height: 34px;
+    text-align: left;
+}
+
+
+.sign-in-up-form input {
+    border: #0E2E45 1px solid;
+    width: 100%;
+    margin: 10px auto 20px;
+    padding: 8px;
+}
+
+.singInUpLink {
+    /*Font-size set so that this view shows correctly*/
+    font-size: 1.2rem;
+    color: forestgreen;
+    text-align: center;
+}
+
+.submit-button {
+    background-color: forestgreen;
+    padding: 8px 18px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 20px;
+    opacity: .8;
+    padding: 10px;
+
+}

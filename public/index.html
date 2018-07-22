@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eye-Budget</title>
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <img class="iconImg" src="images/eye-budget-icon.jpg" alt="icon">
+        <button id="signoutButton" type="button"> Sign Out</button>
+    </nav>
+
+    <main role="main">
+        <section>
+
+            <div id="appDescription">
+                <h1>Budgeting Just Got Easy and Personalized with <span class="appName">EyeBudget</span>
+                </h1>
+                <br>
+                <h2>Create a budget that helps you save today and sets you up for tomorrow's success!</h2>
+                <h2>It enables you to:</h2>
+                <ul class="largerFont">
+                    <li>create categories and subcategories of your budget that make sense to you.
+                    </li>
+                    <li>record of all of your transactions.
+                    </li>
+                    <li>get a visual representation of your spending vs income chart.
+                    </li>
+                </ul>
+            </div>
+
+            <form class="sign-in-up-form">
+                <legend>Sign In</legend>
+                <fieldset>
+                    <label for="loginUsername">Email</label>
+                    <input type="email" id="loginUsername" placeholder="example@gmail.com" value="example@gmail.com">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="password123" value="password123">
+                </fieldset>
+                <button type="submit" class="submit-button" id="login-button">Sign In</button>
+                <br>
+                <p>Need to <button class="singInUpLink" id="change-form-signup">Sign-up</button>?</p>
+            </form>
+        </section>
+        <section id="signup-page">
+            <form class="sign-in-up-form">
+                <legend>Sign up</legend>
+                <fieldset>
+                    <label for="signUpName">Name</label>
+                    <input type="name" id="signUpName" placeholder="Mary Demo" value="Mary Demo">
+                    <label for="signUpUsername">Email</label>
+                    <input type="email" id="signUpUsername" placeholder="MaryDemo@hotmail.com" value="mary.demo@gmail.com">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" id="signUpPassword" placeholder="password123" value="password123">
+                </fieldset>
+                <button type="submit" class="submit-button">Sign In</button>
+                <br>
+                <p>Have an account? <button class="singInUpLink" id="change-form-login">Sign In</button></p>
+            </form>
+        </section>
+        <!-- *****************************************Need to update this with dashboard html************************************************************       -->
+
+
+        <footer>
+            <p>Blanca Hernandez | Copyright 2018</p>
+        </footer>
+
+    </main>
+    <!-- SCRIPTS -->
+
+</body>
+
+</html>
