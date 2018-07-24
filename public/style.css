@@ -15,59 +15,35 @@ html {
     display: none;
 }
 
+
+/******LANDING PAGE AND SIGN UP PAGE******/
+
+#appDescription {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    opacity: .9;
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+}
+
+#mainImg {
+    display: inline-block;
+    border-radius: 8px;
+    width: 500px;
+}
+
 h1 {
     text-align: center;
 }
 
-.largerFont {
-    font-size: 130%;
-}
-
-#appDescription {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    opacity: .8;
-    width: 70%;
-    margin: 0 auto 30px auto;
-}
-
-.navbar {
-    width: 100%;
-    background-size: 10% auto;
-    background-blend-mode: multiply;
-    padding: 1.2%;
-    font-size: 0;
-    margin-bottom: 30px;
-}
-
-.iconImg {
-    display: inline-block;
-    width: 150px;
-    border-radius: 8px;
-    opacity: .8;
-
-}
-
-
-#signoutButton {
-    font-size: 1.1rem;
-    float: right;
-    padding: 1%;
-    background-color: forestgreen;
-    border-radius: 7%;
-    margin-right: 2%;
-}
-
-
-#signoutButton:hover {
-    background-color: whitesmoke;
-    color: black;
-
-}
-
 .appName {
     color: forestgreen;
+}
+
+#appFeatures {
+    text-align: left;
 }
 
 a {
@@ -86,36 +62,23 @@ button:hover {
     cursor: pointer;
 }
 
-#form-text {
-    font-size: 1.3rem;
-    vertical-align: middle;
-    width: 90%;
-    text-align: center;
-    margin: 10px auto 0;
-    height: 22vh;
-}
-
-.form-text-section {
-    width: 100%;
-}
-
-#form-text p {
-    margin: 15px 0 0;
-}
-
 .sign-in-up-form {
-    width: 90%;
     vertical-align: middle;
     font-weight: 600;
-    margin: 0 auto 3% auto;
+    margin: 0 auto 30px auto;
     background-color: #FFFF;
     color: #0E2E45;
-    max-width: 30%;
-    border-radius: 3%;
+    max-width: 400px;
+    border: black solid 1px;
+    border-radius: 7px;
     font-size: 1.3rem;
     padding: 20px 0;
     text-align: center;
-    opacity: .8;
+    opacity: .9;
+}
+
+.demoInfo {
+    font-size: 1rem;
 }
 
 .sign-in-up-form legend {
@@ -142,7 +105,6 @@ button:hover {
 }
 
 .singInUpLink {
-    /*Font-size set so that this view shows correctly*/
     font-size: 1.2rem;
     color: forestgreen;
     text-align: center;
@@ -157,12 +119,234 @@ button:hover {
     margin: 0 auto;
 }
 
+/******NAVIGATION STYLES******/
+
+#iconImg {
+    width: 150px;
+    opacity: .8;
+    border-radius: 7px;
+}
+
+.navbar {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.navbar ul {
+    display: inline-block;
+
+}
+
+
+#nav-options li {
+    display: inline-block;
+    padding-right: 20px;
+    ;
+    font-size: 1.2rem;
+}
+
+#nav-options a {
+    /*    color: #1d1d21;*/
+    color: white;
+    text-decoration: none;
+}
+
+#nav-options a:hover {
+    /*    color: aliceblue;*/
+    text-decoration: underline;
+}
+
+#signoutButton {
+    background-color: forestgreen;
+    border-radius: 7px;
+    padding: 10px;
+    ;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#signoutButton:hover {
+    color: #0E2E45;
+    cursor: pointer;
+
+}
+
+/******Dashboard charts******/
+
+.charts {
+    grid-column: 1 / -1;
+    grid-row: 4 / 13;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#doughnut-chart {
+    padding: 15px;
+}
+
+/*****Budget view by categories and subcateries and all transactions*********************/
+
+#main-table {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.expense-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr)
+}
+
+.fa-minus-square {
+    color: red;
+    grid-column: 12/13;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.remove-icon {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 5px;
+}
+
+.remove-icon-subcategory {
+    margin: 0;
+    padding: 5px;
+}
+
+.remove-subcategory-td {
+    display: flex;
+    justify-content: space-between;
+}
+
+.all-transactions-div {
+    grid-column: 1 / -1;
+    grid-row: 4 / 13;
+    overflow: scroll;
+}
+
+.fa-plus-square {
+    color: #5FCC9C;
+    font-size: 1.5rem;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.th-delete {
+    display: flex;
+    justify-content: space-between
+}
+
+.remove-transaction {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.all-transactions-div .transactions-table {
+    font-size: 1.3rem;
+}
+
+/* TRANSACTIONS */
+
+.delete-btn-transaction-td {
+    display: flex;
+    justify-content: space-between;
+}
+
+/******Add Categories/SubCategorie/Transactions form******/
+
+#add-to-budget-options {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    opacity: .9;
+
+}
+
+
+#add-to-budget-options li {
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 1.2rem;
+}
+
+#add-to-budget-options a {
+    color: forestgreen;
+    text-decoration: none;
+}
+
+#add-to-budget-options a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.add-to-budget-form {
+    vertical-align: middle;
+    font-weight: 600;
+    margin: 0 auto 30px auto;
+    background-color: #FFFF;
+    color: #0E2E45;
+    max-width: 400px;
+    border: black solid 1px;
+    border-radius: 7px;
+    font-size: 1.3rem;
+    padding: 20px 0;
+    text-align: center;
+    opacity: .9;
+}
+
+.add-to-budget-form legend {
+    margin: 10px auto;
+    padding: 10px;
+    border-bottom: #0E2E45 solid 1px;
+    width: 85%;
+    font-size: 2rem;
+}
+
+.add-to-budget-form fieldset {
+    border: none;
+    padding: 0 2rem;
+    line-height: 34px;
+    text-align: left;
+}
+
+
+.add-to-budget-form input {
+    border: #0E2E45 1px solid;
+    width: 100%;
+    margin: 10px auto 20px;
+    padding: 8px;
+}
+
+.radio-btns {
+    display: inline-block;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.ui.radio.checkbox {
+    margin: 5px;
+    display: inline-block;
+}
+
+select,
+option {
+    padding: 8px;
+}
+
+/******Footer STYLE******/
+
 footer {
     text-align: center;
     background-color: white;
     border-radius: 8px;
     margin-top: 20px;
-    opacity: .8;
+    opacity: .9;
     padding: 10px;
-
 }
