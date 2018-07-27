@@ -18,7 +18,7 @@ html {
 
 /******LANDING PAGE AND SIGN UP PAGE******/
 
-#appDescription {
+.textBox {
     background-color: white;
     padding: 40px;
     border-radius: 8px;
@@ -31,7 +31,7 @@ html {
 #mainImg {
     display: inline-block;
     border-radius: 8px;
-    width: 500px;
+    width: 60%;
 }
 
 h1 {
@@ -78,7 +78,8 @@ button:hover {
 }
 
 .demoInfo {
-    font-size: 1rem;
+    font-size: .7rem;
+    color: dimgray;
 }
 
 .sign-in-up-form legend {
@@ -104,7 +105,7 @@ button:hover {
     padding: 8px;
 }
 
-.singInUpLink {
+.signInUpLink {
     font-size: 1.2rem;
     color: forestgreen;
     text-align: center;
@@ -128,7 +129,13 @@ button:hover {
 }
 
 .navbar {
-    width: 100%;
+    display: inline-block;
+    width: 105%;
+    height: 150px;
+    background-color: black;
+    opacity: .9;
+    margin-left: -8px;
+    margin-top: -8px;
     margin-bottom: 30px;
 }
 
@@ -138,29 +145,25 @@ button:hover {
 }
 
 
-#nav-options li {
+.nav-options li {
     display: inline-block;
     padding-right: 20px;
-    ;
     font-size: 1.2rem;
 }
 
-#nav-options a {
-    /*    color: #1d1d21;*/
+.nav-options a {
     color: white;
     text-decoration: none;
 }
 
-#nav-options a:hover {
-    /*    color: aliceblue;*/
+.nav-options a:hover {
     text-decoration: underline;
 }
 
-#signoutButton {
+.signout-button {
     background-color: forestgreen;
     border-radius: 7px;
     padding: 10px;
-    ;
     color: white;
     font-size: 1.2rem;
 }
@@ -171,104 +174,120 @@ button:hover {
 
 }
 
-/******Dashboard charts******/
-
-.charts {
-    grid-column: 1 / -1;
-    grid-row: 4 / 13;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+/********Table to View by Categories and Subcategories***********************************/
+#myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 20%;
+    font-size: 15px; /* Increase font-size */
+    padding: 10px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
 }
 
-#doughnut-chart {
-    padding: 15px;
+div.paleBlueRows {
+    font-family: "Times New Roman", Times, serif;
+    border: 1px solid #FFFFFF;
+    background-color: #CECECE;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    border-collapse: collapse;
 }
 
-/*****Budget view by categories and subcateries and all transactions*********************/
-
-#main-table {
-    margin: 0;
-    font-size: 1.3rem;
+.divTable.paleBlueRows .divTableCell,
+.divTable.paleBlueRows .divTableHead {
+    border: 1px solid #FFFFFF;
+    padding: 3px 2px;
 }
 
-.expense-category {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 1fr)
+.divTable.paleBlueRows .divTableBody .divTableCell {
+    font-size: 13px;
+    color: #000000;
 }
 
-.fa-minus-square {
-    color: red;
-    grid-column: 12/13;
-    font-size: 1.5rem;
-    cursor: pointer;
+.divTable.paleBlueRows .divTableRow:nth-child(even) {
+    background: #228B22;
 }
 
-.remove-icon {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 5px;
+.divTable.paleBlueRows .divTableHeading {
+    background: #228B22;
+    border-bottom: 5px solid #FFFFFF;
 }
 
-.remove-icon-subcategory {
-    margin: 0;
-    padding: 5px;
+.divTable.paleBlueRows .divTableHeading .divTableHead {
+    font-size: 17px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #FFFFFF;
 }
 
-.remove-subcategory-td {
-    display: flex;
-    justify-content: space-between;
+.divTable.paleBlueRows .divTableHeading .divTableHead:first-child {
+    border-left: none;
 }
 
-.all-transactions-div {
-    grid-column: 1 / -1;
-    grid-row: 4 / 13;
-    overflow: scroll;
+.paleBlueRows .tableFootStyle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    background: #228B22;
+    border-top: 3px solid #444444;
 }
 
-.fa-plus-square {
-    color: #5FCC9C;
-    font-size: 1.5rem;
-    margin-left: 5px;
-    cursor: pointer;
+.paleBlueRows .tableFootStyle {
+    font-size: 14px;
 }
 
-.th-delete {
-    display: flex;
-    justify-content: space-between
+/* DivTable.com */
+
+.divTable {
+    display: table;
 }
 
-.remove-transaction {
-    font-size: 1.5rem;
-    height: 1.5rem;
-    width: 1.5rem;
+.divTableRow {
+    display: table-row;
 }
 
-.all-transactions-div .transactions-table {
-    font-size: 1.3rem;
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableCell,
+.divTableHead {
+    display: table-cell;
+}
+
+.divTableHeading {
+    display: table-header-group;
+}
+
+.divTableFoot {
+    display: table-footer-group;
+}
+
+.divTableBody {
+    display: table-row-group;
 }
 
 /* TRANSACTIONS */
-
-.delete-btn-transaction-td {
-    display: flex;
-    justify-content: space-between;
-}
 
 /******Add Categories/SubCategorie/Transactions form******/
 
 #add-to-budget-options {
     display: inline-block;
-    width: 100%;
+    width: 105%;
+    height: 50px;
     text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
     background-color: white;
     opacity: .9;
+    margin-top: -30px;
+    margin-left: -8px;
 
 }
-
 
 #add-to-budget-options li {
     display: inline-block;
@@ -324,6 +343,21 @@ button:hover {
     padding: 8px;
 }
 
+.add-to-budget-form select {
+    display: block;
+    height: auto;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 0.28571429rem;
+    -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
+    box-shadow: 0em 0em 0em 0em transparent inset;
+    padding: 0.62em 1em;
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+    transition: color 0.1s ease, border-color 0.1s ease;
+}
+
 .radio-btns {
     display: inline-block;
     align-items: center;
@@ -344,7 +378,8 @@ option {
 
 footer {
     text-align: center;
-    background-color: white;
+    background-color: black;
+    color: white;
     border-radius: 8px;
     margin-top: 20px;
     opacity: .9;

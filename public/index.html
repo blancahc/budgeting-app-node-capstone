@@ -12,8 +12,8 @@
 
 <body>
     <!-- *****************************************Landing Page************************************************************       -->
-    <main role="main" id="landing-page">
-        <div id="appDescription">
+    <main role="main" id="js-landing-page">
+        <div class="textBox">
             <img id="mainImg" src="images/eye-budget-icon.jpg" alt="eye budget icon image">
             <h1>Budgeting Just Got Easy and Personalized with <span class="appName">EyeBudget</span>
             </h1>
@@ -28,7 +28,7 @@
                     </li>
                 </ul>
             </div>
-            <form class="sign-in-up-form">
+            <form class="sign-in-up-form" id="js-sign-in-form">
                 <legend>Sign In</legend>
                 <fieldset>
                     <label for="loginUsername">Username</label>
@@ -39,14 +39,14 @@
                 </fieldset>
                 <button type="submit" class="submit-button" id="login-button">Sign In</button>
                 <br>
-                <p>Need to <button class="singInUpLink" id="change-form-signup">Sign-up</button>?</p>
+                <p>Need to <button class="signInUpLink" id="js-sign-up-link">Sign-up</button>?</p>
             </form>
         </div>
     </main>
 
     <!-- *****************************************Sign Up Page************************************************************       -->
-    <main role="main" id="sign-up-page">
-        <form class="sign-in-up-form">
+    <main role="main" id="js-sign-up-page">
+        <form class="sign-in-up-form" id="js-sign-up-form">
             <legend>Sign up</legend>
             <fieldset>
                 <label for="signUpName">Name</label>
@@ -56,95 +56,192 @@
                 <label for="signUpPassword">Password</label>
                 <input type="password" id="signUpPassword" placeholder="password123">
             </fieldset>
-            <button type="submit" class="submit-button">Sign In</button>
+            <button type="submit" class="submit-button">Sign Up</button>
             <br>
-            <p>Have an account? <button class="singInUpLink" id="change-form-login">Sign In</button></p>
+            <p>Have an account? <button class="singInUpLink" id="js-back-to-login">Sign In</button></p>
         </form>
     </main>
     <!-- *****************************************Navigation when Logged In************************************************************ -->
-    <main role="main" id="navigation">
+    <main role="main" id="js-navigation">
         <nav class="navbar">
-            <span id="nav-options">
+            <span class="nav-options">
                     <ul>
                         <li><img id="iconImg" src="images/eye-budget-icon.jpg" alt="eye budget icon image"></li>
-                        <li><a href="#" id="nav-display-budget">My Budget</a></li>
-                        <li><a href="#" id="nav-add-transaction">Add to My Budget</a></li>
-                        <li><button id="signoutButton" type="button"> Sign Out</button></li>
+                        <li><a href="#" id="js-nav-budget">My Budget</a></li>
+                        <li><a href="#" id="js-nav-add-budget">Add to My Budget</a></li>
+                        <li><button id="js-signout-button" class="signout-button" type="button"> Sign Out</button></li>
                     </ul>
                 </span>
         </nav>
     </main>
 
-    <!-- Dashboard View (A chart showing total spent vs total income will go here. The data to populate this chart will be taken from the transactions of sum of income vs expenses -->
-
-    <main role="main" id="Dasboard View">
-        <div class="charts">
-            <canvas id="doughnut-chart" width="100%" height="100%"></canvas>
-        </div>
-
-    </main>
     <!-- Budget View (Here you will be able to see all added Categories and see a summary of spent for each) -->
-    <main role="main" id="view-budget">
-        <h2>Budget by Categories and Subcategories</h2>
-        <table class="ui unstackable table striped-table" id="main-table">
-        </table>
-        <h2>All Transactions</h2>
-        <div class="all-transactions-div hidden">
-            <table class="ui unstackable table striped-table transactions-table">
-            </table>
-        </div>
-    </main>
-    <ul id="add-to-budget-options">
-        <li><a href="#" id="nav-dashboard">+ Category</a></li>
-        <li><a href="#" id="nav-display-budget">+ Subcategory</a></li>
-        <li><a href="#" id="nav-add-transaction">+ Transaction</a></li>
-    </ul>
-    <form id="add-cateory" class="add-to-budget-form">
-        <legend>Add Category</legend>
-        <fieldset>
-            <label for="categoryName">Category Name</label>
-            <input type="name" id="categoryName" placeholder='i.e."Shopping"'>
-        </fieldset>
-        <button type="submit" class="submit-button">Add</button>
-    </form>
-    <form id="add-subcategory" class="add-to-budget-form">
-        <legend>Add Subcategory</legend>
-        <fieldset>
-            <label for="subcategoryName">Subcategory Name</label>
-            <input type="name" id="subcategoryName" placeholder='i.e."Clothes"'>
-            <label for="subcategorybelongs">Category it Belongs To</label>
-            <select name="subcategorybelongs" id="subcategory">
-            </select>
-            <label for="dollar-value">Monthly Budget for Subcategory:</label>
-            <input type="number" name="value" id="dollar-value" placeholder="0.00" step="0.01" min="0">
-            <div class="radio-btns">
-                <div class="ui radio checkbox">
-                    <label for="negative">Expense (-)</label>
-                    <input type="radio" name="radio" id="negative" value="-">
-                </div>
-                <div class="ui radio checkbox">
-                    <label for="positive">Income (+)</label>
-                    <input type="radio" name="radio" id="positive" value="+">
+    <main role="main" id="js-view-budget">
+        <h2>My Budget</h2>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filter by Category.."><br>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filter by Month..">
+        <div class="divTable paleBlueRows">
+            <div class="divTableHeading">
+                <div class="divTableRow">
+                    <div class="divTableHead">Category</div>
+                    <div class="divTableHead">Month</div>
+                    <div class="divTableHead">Budgeted</div>
+                    <div class="divTableHead">Spent</div>
                 </div>
             </div>
-            <!-**********************figure out how to make it a drop down option of existing categories************************-->
-            <input type="name" id="subcategoryBelongs" placeholder='i.e."shopping"'>
-        </fieldset>
-        <button type="submit" class="submit-button">Add</button>
-    </form>
+            <div class="divTableBody">
+                <div class="divTableRow">
+                    <div class="divTableCell">Shopping</div>
+                    <div class="divTableCell">June</div>
+                    <div class="divTableCell">500</div>
+                    <div class="divTableCell">300</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Automobile</div>
+                    <div class="divTableCell">June</div>
+                    <div class="divTableCell">300</div>
+                    <div class="divTableCell">112</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Shopping</div>
+                    <div class="divTableCell">July</div>
+                    <div class="divTableCell">300</div>
+                    <div class="divTableCell">50</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Health</div>
+                    <div class="divTableCell">June</div>
+                    <div class="divTableCell">100</div>
+                    <div class="divTableCell">100</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Automobile</div>
+                    <div class="divTableCell">July</div>
+                    <div class="divTableCell">300</div>
+                    <div class="divTableCell">245</div>
+                </div>
+            </div>
+            <div class="divTableFoot tableFootStyle">
+                <div class="divTableRow">
+                    <div class="divTableCell">Totals</div>
+                    <div class="divTableCell">-</div>
+                    <div class="divTableCell">1200</div>
+                    <div class="divTableCell">896</div>
+                </div>
+            </div>
+        </div>
 
-    <form id="add-transaction" class="add-to-budget-form">
-        <legend>Add Transaction</legend>
-        <fieldset>
-            <!-**********************figure out how to make it a drop down option of existing categories/subcategories************************-->
-            <label for="category">Select a Category:</label><br>
-            <select name="category-selection" id="category">
+        <h2>My Transactions</h2>
+        <div class="divTable paleBlueRows">
+            <div class="divTableHeading">
+                <div class="divTableRow">
+                    <div class="divTableHead">Category</div>
+                    <div class="divTableHead">Subcategory</div>
+                    <div class="divTableHead">Month</div>
+                    <div class="divTableHead">Spent</div>
+                </div>
+            </div>
+            <div class="divTableBody">
+                <div class="divTableRow">
+                    <div class="divTableCell">Shopping</div>
+                    <div class="divTableCell">Clothes</div>
+                    <div class="divTableCell">July</div>
+                    <div class="divTableCell">130</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Shopping</div>
+                    <div class="divTableCell">Groceries</div>
+                    <div class="divTableCell">June</div>
+                    <div class="divTableCell">120</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Health</div>
+                    <div class="divTableCell">Dentist</div>
+                    <div class="divTableCell">July</div>
+                    <div class="divTableCell">90</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Health</div>
+                    <div class="divTableCell">Doctor</div>
+                    <div class="divTableCell">August</div>
+                    <div class="divTableCell">89</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">Shopping</div>
+                    <div class="divTableCell">Clothes</div>
+                    <div class="divTableCell">June</div>
+                    <div class="divTableCell">200</div>
+                </div>
+            </div>
+            <div class="divTableFoot tableFootStyle">
+                <div class="divTableRow">
+                    <div class="divTableCell">Totals</div>
+                    <div class="divTableCell">-</div>
+                    <div class="divTableCell">-</div>
+                    <div class="divTableCell">896</div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Add to Budget Page  -->
+    <main role="main" id="js-add-to-budget-page">
+        <ul id="add-to-budget-options">
+            <li><a href="#" id="js-nav-add-category">+ Category</a></li>
+            <li><a href="#" id="js-nav-add-subcategory">+ Subcategory</a></li>
+            <li><a href="#" id="js-nav-add-transaction">+ Transaction</a></li>
+        </ul>
+        <div id="js-added-to-budget">
+            <h3 class='textBox'>Added!</h3>
+        </div>
+        <form id="js-form-category" class="add-to-budget-form">
+            <legend>Add Category</legend>
+            <fieldset>
+                <label for="categoryName">Category Name</label>
+                <input type="name" id="categoryName" placeholder='i.e."Shopping"'>
+            </fieldset>
+            <button type="submit" class="submit-button">Add</button>
+        </form>
+
+        <form id="js-form-subcategory" class="add-to-budget-form">
+            <legend>Add Subcategory</legend>
+            <fieldset>
+                <label for="subcategoryName">Subcategory Name</label>
+                <input type="name" id="subcategoryName" placeholder='i.e."Clothes"'>
+                <label for="subcategorybelongs">Category it Belongs To</label>
+                <select name="subcategorybelongs" class="subcategory">
             </select>
-            <label for="subcategory">Select a Subcategory:</label><br>
-            <select name="subcategory-selection" id="subcategory">
-            </select><br>
-            <label for="transactionMonth">Month:</label><br>
-            <select name="transactionMonth" id="transactionMonth">
+                <label for="dollar-value">Monthly Budget for Subcategory:</label>
+                <input type="number" name="value" class="dollar-value" placeholder="0.00" step="0.01" min="0">
+                <div class="radio-btns">
+                    <div class="ui radio checkbox">
+                        <label for="negative">Expense (-)</label>
+                        <input type="radio" name="radio" class="negative" value="-">
+                    </div>
+                    <div class="ui radio checkbox">
+                        <label for="positive">Income (+)</label>
+                        <input type="radio" name="radio" class="positive" value="+">
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="submit-button">Add</button>
+        </form>
+
+
+        <form id="js-form-transaction" class="add-to-budget-form">
+            <legend>Add Transaction</legend>
+            <fieldset>
+
+                <label for="category">Select a Category:</label>
+                <select name="category-selection" id="category">
+            </select>
+                <label for="subcategory">Select a Subcategory:</label>
+
+                <select name="subcategory-selection" class="subcategory">
+            </select>
+
+                <label for="transactionMonth">Transaction Month:</label>
+                <select name="transactionMonth" id="transactionMonth">
                 <option value="january">Jan</option>
                 <option value="february">Feb</option>
                 <option value="march">Mar</option>
@@ -158,22 +255,22 @@
                 <option value="november">Nov</option>
                 <option value="dec">Dec</option>
             </select>
-            <label for="dollar-value">Transaction Amount:</label>
-            <input type="number" name="value" id="dollar-value" placeholder="0.00" step="0.01" min="0">
-            <div class="radio-btns">
-                <div class="ui radio checkbox">
-                    <label for="negative">Expense (-)</label>
-                    <input type="radio" name="radio" id="negative" value="-">
+                <label for="dollar-value">Transaction Amount:</label>
+                <input type="number" name="value" class="dollar-value" placeholder="0.00" step="0.01" min="0">
+                <div class="radio-btns">
+                    <div class="ui radio checkbox">
+                        <label for="negative">Expense (-)</label>
+                        <input type="radio" name="radio" class="negative" value="-">
+                    </div>
+                    <div class="ui radio checkbox">
+                        <label for="positive">Income (+)</label>
+                        <input type="radio" name="radio" class="positive" value="+">
+                    </div>
                 </div>
-                <div class="ui radio checkbox">
-                    <label for="positive">Income (+)</label>
-                    <input type="radio" name="radio" id="positive" value="+">
-                </div>
-            </div>
-        </fieldset>
-        <button type="submit" class="submit-button">Add</button>
-    </form>
-
+            </fieldset>
+            <button type="submit" class="submit-button">Add</button>
+        </form>
+    </main>
 
     <!--Add Transactions(Here you will be able to add categories/subcategories and transactions of money spent or income.) -->
     <main role="main" id="add-transactions-categories"></main>
@@ -181,9 +278,11 @@
     <footer>
         <p>Blanca Hernandez | Copyright 2018</p>
     </footer>
-
-    <!-- SCRIPTS -->
-
 </body>
+
+<!-- SCRIPTS -->
+<script src="//code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+<script src="client.js"></script>
 
 </html>
