@@ -27,9 +27,7 @@ $(`#js-sign-up-form`).on('submit', function (event) {
 
 //Accidentally clicked on Sign Up form but already have an account, Go back to Sign In Form
 $('#js-sign-up-link').on('click', function (event) {
-    event.preventDefault();
-    $("main").hide();
-    $("#js-landing-page").show();
+    location.reload();
 });
 
 //Submit Sign In Form
@@ -128,8 +126,5 @@ $('#js-nav-add-budget').on('click', function (event) {
 });
 
 $('#js-signout-button').on('click', function (event) {
-    event.preventDefault();
-    $("main").hide();
-    $("#js-sign-in-form").show();
-    $("#js-landing-page").show();
+    location.reload();
 });
