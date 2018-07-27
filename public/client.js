@@ -17,29 +17,117 @@ $(document).on('click', '#js-sign-up-link', function (event) {
 //Submit Sign Up Form
 $(`#js-sign-up-form`).on('submit', function (event) {
     event.preventDefault();
-    $("main").hide();
-    $("form").hide();
-    $("#js-navigation").show();
-    $('#js-added-to-budget').hide();
-    $("#js-add-to-budget-page").show();
-    $("#js-form-category").show();
+
+    //take the input from the user
+    const name = $("#signUpName").val();
+    const username = $("#signUpUsername").val();
+    const password = $("#signUpPassword").val();
+
+    //validate the input
+    if (name == "") {
+        alert('Please add a name');
+    } else if (username == "") {
+        alert('Please add an user name');
+    } else if (password == "") {
+        alert('Please add a password');
+    }
+    //if the input is valid
+    else {
+        //create the payload object (what data we send to the api call)
+        const newUserObject = {
+            name: name,
+            username: username,
+            password: password
+        };
+        console.log(newUserObject);
+
+        //make the api call using the payload above
+        $.ajax({
+                type: 'POST',
+                url: '/users/create',
+                dataType: 'json',
+                data: JSON.stringify(newUserObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
+            .done(function (result) {
+                console.log(result);
+                $('#loggedInUserName').val(result.username);
+                $("main").hide();
+                $("form").hide();
+                $("#js-navigation").show();
+                $('#js-added-to-budget').hide();
+                $("#js-add-to-budget-page").show();
+                $("#js-form-category").show();
+
+            })
+            //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
 });
 
 //Accidentally clicked on Sign Up form but already have an account, Go back to Sign In Form
-$('#js-sign-up-link').on('click', function (event) {
+$('#js-back-to-login').on('click', function (event) {
     location.reload();
 });
 
 //Submit Sign In Form
-//************This overrides the top code for "Submit Sign Up Form". Will it be a problem?
 $(`#js-sign-in-form`).on('submit', function (event) {
     event.preventDefault();
-    $("main").hide();
-    $("form").hide();
-    $('#js-added-to-budget').hide();
-    $("#js-navigation").show();
-    $("#js-add-to-budget-page").show();
-    $("#js-form-category").show();
+
+
+    //take the input from the user
+    const username = $("#loginUsername").val();
+    const password = $("#loginPassword").val();
+
+    //validate the input
+    if (username == "") {
+        alert('Please input user name');
+    } else if (password == "") {
+        alert('Please input password');
+    }
+    //if the input is valid
+    else {
+        //create the payload object (what data we send to the api call)
+        const loginUserObject = {
+            username: username,
+            password: password
+        };
+        console.log(loginUserObject);
+
+        //make the api call using the payload above
+        $.ajax({
+                type: 'POST',
+                url: '/users/login',
+                dataType: 'json',
+                data: JSON.stringify(loginUserObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
+            .done(function (result) {
+                console.log(result);
+                $("main").hide();
+                $("form").hide();
+                $('#js-added-to-budget').hide();
+                $("#js-navigation").show();
+                $("#js-add-to-budget-page").show();
+                $("#js-form-category").show();
+                $('#loggedInUserName').val(result.username);
+
+            })
+            //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+                alert('Incorrect Username or Password');
+            });
+    };
+
 });
 
 //Click on Add category sub nav menu uption
