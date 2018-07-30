@@ -1,5 +1,7 @@
 const User = require('./models/user');
 const Category = require('./models/category');
+const Subcategory = require('./models/subcategory');
+const Transaction = require('./models/transaction');
 const bodyParser = require('body-parser');
 const config = require('./config');
 const mongoose = require('mongoose');
@@ -197,20 +199,19 @@ app.post('/category/create', (req, res) => {
     });
 });
 
-// -------------category ENDPOINTS------------------------------------------------
+// ------------subcategory ENDPOINTS------------------------------------------------
 // POST -----------------------------------------
-// creating a new Subcategory
+// creating a new subcategory
 app.post('/subcategory/create', (req, res) => {
     let subcategoryName = req.body.subcategoryName;
     let categoryBelongstoName = req.body.categoryBelongstoName;
-    let budgetSubcategory = req.body.budgetSubcategory;
+    let budgetSubcategoryAmount = req.body.budgetSubcategoryAmount;
     let username = req.body.username;
 
-
-    Subcategory.create({
+    Category.create({
         subcategoryName,
         categoryBelongstoName,
-        budgetSubcategory,
+        budgetSubcategoryAmount,
         username
     }, (err, item) => {
         if (err) {
@@ -224,6 +225,34 @@ app.post('/subcategory/create', (req, res) => {
     });
 });
 
+
+// -------------transaction ENDPOINTS------------------------------------------------
+// POST -----------------------------------------
+// creating a new Transaction
+app.post('/transaction/create', (req, res) => {
+    let transactionCategoryName = req.body.transactionCategoryName;
+    let transactionSubategoryName = req.body.transactionSubategoryName;
+    let transactionMonthName = req.body.transactionMonthName;
+    let transactionAmount = req.body.transactionAmount;
+    let username = req.body.username;
+
+    Transaction.create({
+        transactionCategoryName,
+        transactionSubategoryName,
+        transactionMonthName,
+        transactionAmount,
+        username
+    }, (err, item) => {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        if (item) {
+            return res.json(item);
+        }
+    });
+});
 // PUT --------------------------------------
 app.put('/entry/:id', function (req, res) {
     let toUpdate = {};

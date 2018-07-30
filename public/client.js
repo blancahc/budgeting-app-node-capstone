@@ -209,8 +209,8 @@ $(`#js-form-subcategory`).on('submit', function (event) {
     //take the input from the user
     const subcategoryName = $("#subcategoryName").val();
     const categoryBelongstoName = $("#categoryBelongs").val();
-    const budgetSubcategory = $("#bugetsubcategory").val();
-    //    How do I track whether they select expense or income for budgetSubcategory?
+    const budgetSubcategoryName = $("#bugetsubcategory").val();
+ //????    How do I track whether they select expense or income for budgetSubcategory?
     const username = $('#loggedInUserName').val();
 
     //validate the input
@@ -218,7 +218,7 @@ $(`#js-form-subcategory`).on('submit', function (event) {
         alert('Please add a subcategory name');
     } else if (categoryBelongstoName == "") {
         alert('Please add the category it belongs to');
-    } else if (budgetSubcategory == "") {
+    } else if (budgetSubcategoryName == "") {
         alert('Please add a budget');
 
     }
@@ -228,7 +228,7 @@ $(`#js-form-subcategory`).on('submit', function (event) {
         const newSubcategoryObject = {
             subcategoryName: subcategoryName,
             categoryBelongstoName: categoryBelongstoName,
-            budgetSubcategory: budgetSubcategory,
+            budgetSubcategoryName: budgetSubcategory,
             username: username
         };
         console.log(newSubcategoryObject);
