@@ -33,9 +33,9 @@
                 <legend>Sign In</legend>
                 <fieldset>
                     <label for="loginUsername">Username</label>
-                    <input type="name" id="loginUsername" placeholder="frugalme">
+                    <input type="name" id="loginUsername" placeholder="frugalme" value="frugalme">
                     <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" placeholder="password123">
+                    <input type="password" id="loginPassword" placeholder="password123" value="password123">
                     <p class="demoInfo">For a demo use username: <i>administrator</i>, password: <i>admin123</i></p>
                 </fieldset>
                 <button type="submit" class="submit-button" id="login-button">Sign In</button>
@@ -51,11 +51,11 @@
             <legend>Sign up</legend>
             <fieldset>
                 <label for="signUpName">Name</label>
-                <input type="name" id="signUpName" placeholder="Mary Demo">
+                <input type="name" id="signUpName" placeholder="Mary Demo" value="Mary Demo">
                 <label for="signUpUsername">Username</label>
-                <input type="name" id="signUpUsername" placeholder="MaryDemo">
+                <input type="name" id="signUpUsername" placeholder="MaryDemo" value="frugalme">
                 <label for="signUpPassword">Password</label>
-                <input type="password" id="signUpPassword" placeholder="password123">
+                <input type="password" id="signUpPassword" placeholder="password123" value="password123">
             </fieldset>
             <button type="submit" class="submit-button">Sign Up</button>
             <br>
@@ -210,14 +210,15 @@
                 <label for="subcategoryName">Subcategory Name</label>
                 <input type="name" id="subcategoryName" placeholder='i.e."Clothes"'>
                 <label for="subcategorybelongs">Category it Belongs To</label>
-                <select name="subcategorybelongs" class="subcategory">
+                <select name="subcategorybelongs" id="categoryBelongs" class="subcategory">
+           <option value="Medical">Medical</option>
             </select>
                 <label for="dollar-value">Monthly Budget for Subcategory:</label>
-                <input type="number" name="value" class="dollar-value" placeholder="0.00" step="0.01" min="0">
+                <input type="number" name="value" class="dollar-value" id="bugetsubcategory" placeholder="0.00" step="0.01" min="0">
                 <div class="radio-btns">
                     <div class="ui radio checkbox">
                         <label for="negative">Expense (-)</label>
-                        <input type="radio" name="radio" class="negative" value="-">
+                        <input type="radio" name="radio" class="negative" id="expenseforSubcategory" value="-">
                     </div>
                     <div class="ui radio checkbox">
                         <label for="positive">Income (+)</label>

@@ -95,7 +95,8 @@ $(`#js-sign-in-form`).on('submit', function (event) {
         //create the payload object (what data we send to the api call)
         const loginUserObject = {
             username: username,
-            password: password
+            password: passwor
+            d
         };
         console.log(loginUserObject);
 
@@ -143,11 +144,49 @@ $('#js-nav-add-category').on('click', function (event) {
 //Submit Add category Form
 $(`#js-form-category`).on('submit', function (event) {
     event.preventDefault();
-    $('main').hide();
-    $('form').hide();
-    $("#js-navigation").show();
-    $("#js-add-to-budget-page").show();
-    $('#js-added-to-budget').show();
+
+
+    //take the input from the user
+    const categoryName = $("#categoryName").val();
+    const username = $('#loggedInUserName').val();
+
+    //validate the input
+    if (categoryName == "") {
+        alert('Please add a category name');
+    }
+    //if the input is valid
+    else {
+        //create the payload object (what data we send to the api call)
+        const newCategoryObject = {
+            categoryName: categoryName,
+            username: username
+        };
+        console.log(newCategoryObject);
+
+        //make the api call using the payload above
+        $.ajax({
+                type: 'POST',
+                url: '/category/create',
+                dataType: 'json',
+                data: JSON.stringify(newCategoryObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
+            .done(function (result) {
+                console.log(result);
+                $('main').hide();
+                $('form').hide();
+                $("#js-navigation").show();
+                $("#js-add-to-budget-page").show();
+                $('#js-added-to-budget').show();
+            })
+            //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
 });
 
 //Click on Add subcategory sub nav menu uption
@@ -165,11 +204,59 @@ $('#js-nav-add-subcategory').on("click", function (event) {
 //Submit Add subcategory Form
 $(`#js-form-subcategory`).on('submit', function (event) {
     event.preventDefault();
-    $('main').hide();
-    $('form').hide();
-    $("#js-navigation").show();
-    $("#js-add-to-budget-page").show();
-    $('#js-added-to-budget').show();
+
+
+    //take the input from the user
+    const subcategoryName = $("#subcategoryName").val();
+    const categoryBelongstoName = $("#categoryBelongs").val();
+    const budgetSubcategory = $("#bugetsubcategory").val();
+    //    How do I track whether they select expense or income for budgetSubcategory?
+    const username = $('#loggedInUserName').val();
+
+    //validate the input
+    if (subcategoryName == "") {
+        alert('Please add a subcategory name');
+    } else if (categoryBelongstoName == "") {
+        alert('Please add the category it belongs to');
+    } else if (budgetSubcategory == "") {
+        alert('Please add a budget');
+
+    }
+//if the input is valid**************************************left here*********************
+    else {
+        //create the payload object (what data we send to the api call)
+        const newSubcategoryObject = {
+            subcategoryName: subcategoryName,
+            categoryBelongstoName: categoryBelongstoName,
+            budgetSubcategory: budgetSubcategory,
+            username: username
+        };
+        console.log(newSubcategoryObject);
+
+        //make the api call using the payload above
+        $.ajax({
+                type: 'POST',
+                url: '/subcategory/create',
+                dataType: 'json',
+                data: JSON.stringify(newSubcategoryObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
+            .done(function (result) {
+                console.log(result);
+                $('main').hide();
+                $('form').hide();
+                $("#js-navigation").show();
+                $("#js-add-to-budget-page").show();
+                $('#js-added-to-budget').show();
+            })
+            //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
 });
 
 //Click on Add transaction sub nav menu uption
