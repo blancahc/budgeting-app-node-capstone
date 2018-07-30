@@ -3,9 +3,21 @@
 const mongoose = require('mongoose');
 // const bcrypt = require('bcryptjs');
 
-const categorySchema = new mongoose.Schema({
-    categoryName: {
+const transactionSchema = new mongoose.Schema({
+    transactionCategoryName: {
         type: String,
+        required: false
+    },
+    transactionSubcategoryName: {
+        type: String,
+        required: false
+    },
+    transactionMonthName: {
+        type: String,
+        required: false
+    },
+    transactionAmount: {
+        type: Number,
         required: false
     },
     username: {
@@ -14,6 +26,6 @@ const categorySchema = new mongoose.Schema({
     }
 });
 
-const Category = mongoose.model('Category', categorySchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
 
-module.exports = Category;
+module.exports = Transaction;

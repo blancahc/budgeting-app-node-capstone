@@ -12,7 +12,11 @@ const subcategorySchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    budgetSubcategoryName: {
+    budgetSubcategoryAmount: {
+        type: Number,
+        required: false
+    },
+    incomeExpense: {
         type: String,
         required: false
     },

@@ -1,3 +1,64 @@
+//Defined functions and objects
+function displayCategoryDropdownForSubcategory() {
+    const username = $('#loggedInUserName').val();
+    console.log(username);
+    $.ajax({
+            type: 'GET',
+            url: '/category/get/' + username,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#categoryBelongs").html('');
+                var buildCategoryDropdownOutput = "";
+                buildCategoryDropdownOutput += '<option value="addCategory">add category</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildCategoryDropdownOutput += '<option value="' + resultValue.categoryName + '">' + resultValue.categoryName + '</option>';
+                });
+                //use the HTML output to show it in the index.html
+                $("#categoryBelongs").html(buildCategoryDropdownOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function displayCategoryDropdownForTransaction() {
+    const username = $('#loggedInUserName').val();
+    console.log(username);
+    $.ajax({
+            type: 'GET',
+            url: '/category/get/' + username,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#transactionCategory").html('');
+                var buildCategoryDropdownOutput = "";
+                buildCategoryDropdownOutput += '<option value="addCategory">add category</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildCategoryDropdownOutput += '<option value="' + resultValue.categoryName + '">' + resultValue.categoryName + '</option>';
+                });
+                //use the HTML output to show it in the index.html
+                $("#transactionCategory").html(buildCategoryDropdownOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
 // Triggers
 
 //when the page loads...
@@ -95,8 +156,7 @@ $(`#js-sign-in-form`).on('submit', function (event) {
         //create the payload object (what data we send to the api call)
         const loginUserObject = {
             username: username,
-            password: passwor
-            d
+            password: password
         };
         console.log(loginUserObject);
 
@@ -192,6 +252,7 @@ $(`#js-form-category`).on('submit', function (event) {
 //Click on Add subcategory sub nav menu uption
 $('#js-nav-add-subcategory').on("click", function (event) {
     event.preventDefault();
+    displayCategoryDropdownForSubcategory();
     $('main').hide();
     $('form').hide();
     $('#js-added-to-budget').hide();
@@ -209,8 +270,8 @@ $(`#js-form-subcategory`).on('submit', function (event) {
     //take the input from the user
     const subcategoryName = $("#subcategoryName").val();
     const categoryBelongstoName = $("#categoryBelongs").val();
-    const budgetSubcategoryName = $("#bugetsubcategory").val();
- //????    How do I track whether they select expense or income for budgetSubcategory?
+    const budgetSubcategoryAmount = $("#bugetsubcategory").val();
+    const incomeExpense = $("input[name='subcategory-radio']:checked").val();
     const username = $('#loggedInUserName').val();
 
     //validate the input
@@ -218,17 +279,18 @@ $(`#js-form-subcategory`).on('submit', function (event) {
         alert('Please add a subcategory name');
     } else if (categoryBelongstoName == "") {
         alert('Please add the category it belongs to');
-    } else if (budgetSubcategoryName == "") {
+    } else if (budgetSubcategoryAmount == "") {
         alert('Please add a budget');
 
     }
-//if the input is valid**************************************left here*********************
+    //if the input is valid**************************************left here*********************
     else {
         //create the payload object (what data we send to the api call)
         const newSubcategoryObject = {
             subcategoryName: subcategoryName,
             categoryBelongstoName: categoryBelongstoName,
-            budgetSubcategoryName: budgetSubcategory,
+            budgetSubcategoryAmount: budgetSubcategoryAmount,
+            incomeExpense: incomeExpense,
             username: username
         };
         console.log(newSubcategoryObject);
@@ -262,6 +324,7 @@ $(`#js-form-subcategory`).on('submit', function (event) {
 //Click on Add transaction sub nav menu uption
 $('#js-nav-add-transaction').on('click', function (event) {
     event.preventDefault();
+    displayCategoryDropdownForTransaction();
     $('main').hide();
     $('form').hide();
     $('#js-added-to-budget').hide();
@@ -274,11 +337,64 @@ $('#js-nav-add-transaction').on('click', function (event) {
 //Submit Add transaction Form
 $(`#js-form-transaction`).on('submit', function (event) {
     event.preventDefault();
-    $('main').hide();
-    $('form').hide();
-    $("#js-navigation").show();
-    $("#js-add-to-budget-page").show();
-    $('#js-added-to-budget').show();
+
+    //take the input from the user
+    const transactionCategoryName = $("#transactionCategory").val();
+    const transactionSubcategoryName = $("#transactionSubcategoryName").val();
+    const transactionMonthName = $("#transactionMonth").val();
+    const transactionAmount = $("#transactionAmount").val();
+
+    //    How do I track whether they select expense or income for budgetSubcategory?
+    const username = $('#loggedInUserName').val();
+
+    //validate the input
+    if (transactionCategoryName == "") {
+        alert('Please select a Category for this transaction');
+    } else if (transactionSubcategoryName == "") {
+        alert('Please select a Subcategory for this transaction');
+    } else if (transactionMonthName == "") {
+        alert('Please select a month for this transaction');
+    } else if (transactionAmount == "") {
+        alert('Please enter a transaction amount');
+
+    }
+    //if the input is valid**************************************left here*********************
+    else {
+        //create the payload object (what data we send to the api call)
+        const newTransactionObject = {
+            transactionCategoryName: transactionCategoryName,
+            transactionSubcategoryName: transactionSubcategoryName,
+            transactionMonthName: transactionMonthName,
+            transactionAmount: transactionAmount,
+
+            username: username
+        };
+        console.log(newTransactionObject);
+
+        //make the api call using the payload above
+        $.ajax({
+                type: 'POST',
+                url: '/transaction/create',
+                dataType: 'json',
+                data: JSON.stringify(newTransactionObject),
+                contentType: 'application/json'
+            })
+            //if call is succefull
+            .done(function (result) {
+                console.log(result);
+                $('main').hide();
+                $('form').hide();
+                $("#js-navigation").show();
+                $("#js-add-to-budget-page").show();
+                $('#js-added-to-budget').show();
+            })
+            //if the call is failing
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+    };
 });
 
 //Click on My Budget nav menu uption

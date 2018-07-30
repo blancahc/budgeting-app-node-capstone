@@ -198,7 +198,22 @@ app.post('/category/create', (req, res) => {
         }
     });
 });
-
+//GET category by username
+app.get('/category/get/:username', function (req, res) {
+    console.log(req.params.username);
+    Category.find({
+            username: req.params.username
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item);
+            }
+        });
+});
 // ------------subcategory ENDPOINTS------------------------------------------------
 // POST -----------------------------------------
 // creating a new subcategory
@@ -206,12 +221,14 @@ app.post('/subcategory/create', (req, res) => {
     let subcategoryName = req.body.subcategoryName;
     let categoryBelongstoName = req.body.categoryBelongstoName;
     let budgetSubcategoryAmount = req.body.budgetSubcategoryAmount;
+    let incomeExpense = req.body.incomeExpense;
     let username = req.body.username;
 
-    Category.create({
+    Subcategory.create({
         subcategoryName,
         categoryBelongstoName,
         budgetSubcategoryAmount,
+        incomeExpense,
         username
     }, (err, item) => {
         if (err) {
@@ -231,14 +248,14 @@ app.post('/subcategory/create', (req, res) => {
 // creating a new Transaction
 app.post('/transaction/create', (req, res) => {
     let transactionCategoryName = req.body.transactionCategoryName;
-    let transactionSubategoryName = req.body.transactionSubategoryName;
+    let transactionSubcategoryName = req.body.transactionSubcategoryName;
     let transactionMonthName = req.body.transactionMonthName;
     let transactionAmount = req.body.transactionAmount;
     let username = req.body.username;
 
     Transaction.create({
         transactionCategoryName,
-        transactionSubategoryName,
+        transactionSubcategoryName,
         transactionMonthName,
         transactionAmount,
         username
