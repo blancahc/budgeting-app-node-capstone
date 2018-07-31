@@ -59,6 +59,71 @@ function displayCategoryDropdownForTransaction() {
         });
 }
 
+function displaySubcategoryDropdownForTransaction() {
+    const username = $('#loggedInUserName').val();
+    console.log(username);
+    $.ajax({
+            type: 'GET',
+            url: '/subcategory/get/' + username,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#transactionSubcategoryName").html('');
+                var buildSubcategoryDropdownOutput = "";
+                buildSubcategoryDropdownOutput += '<option value="addSubcategory">add subcategory</option>';
+                $.each(result, function (resultKey, resultValue) {
+                    buildSubcategoryDropdownOutput += '<option value="' + resultValue.subcategoryName + '">' + resultValue.subcategoryName + '</option>';
+                });
+                //use the HTML output to show it in the index.html
+                $("#transactionSubcategoryName").html(buildSubcategoryDropdownOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+
+function displayTransactionHistory() {
+    const username = $('#loggedInUserName').val();
+    console.log(username);
+    $.ajax({
+            type: 'GET',
+            url: '/transaction/get/' + username,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#displayTransactionHistory").html('');
+                var buildTransactionHistory = "";
+
+                $.each(result, function (resultKey, resultValue) {
+
+                    buildTransactionHistory += '<p>' + resultValue.transactionCategoryName + '</p>';
+                    buildTransactionHistory += '<p>' + resultValue.transactionSubcategoryName + '</p>';
+                    buildTransactionHistory += '<p>' + resultValue.transactionMonthName + '</p>';
+                    buildTransactionHistory += '<p>' + resultValue.transactionAmount + '</p>';
+                    buildTransactionHistory += '<p>' + resultValue.incomeExpenseTransaction + '</p>';
+                });
+                //use the HTML output to show it in the index.html
+                $("#displayTransactionHistory").html(buildTransactionHistory);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
 // Triggers
 
 //when the page loads...
@@ -325,6 +390,7 @@ $(`#js-form-subcategory`).on('submit', function (event) {
 $('#js-nav-add-transaction').on('click', function (event) {
     event.preventDefault();
     displayCategoryDropdownForTransaction();
+    displaySubcategoryDropdownForTransaction();
     $('main').hide();
     $('form').hide();
     $('#js-added-to-budget').hide();
@@ -343,8 +409,7 @@ $(`#js-form-transaction`).on('submit', function (event) {
     const transactionSubcategoryName = $("#transactionSubcategoryName").val();
     const transactionMonthName = $("#transactionMonth").val();
     const transactionAmount = $("#transactionAmount").val();
-
-    //    How do I track whether they select expense or income for budgetSubcategory?
+    const incomeExpenseTransaction = $("input[name='transaction-radio']:checked").val();
     const username = $('#loggedInUserName').val();
 
     //validate the input
@@ -356,7 +421,6 @@ $(`#js-form-transaction`).on('submit', function (event) {
         alert('Please select a month for this transaction');
     } else if (transactionAmount == "") {
         alert('Please enter a transaction amount');
-
     }
     //if the input is valid**************************************left here*********************
     else {
@@ -366,7 +430,7 @@ $(`#js-form-transaction`).on('submit', function (event) {
             transactionSubcategoryName: transactionSubcategoryName,
             transactionMonthName: transactionMonthName,
             transactionAmount: transactionAmount,
-
+            incomeExpenseTransaction: incomeExpenseTransaction,
             username: username
         };
         console.log(newTransactionObject);
@@ -400,6 +464,7 @@ $(`#js-form-transaction`).on('submit', function (event) {
 //Click on My Budget nav menu uption
 $('#js-nav-budget').on('click', function (event) {
     event.preventDefault();
+    displayTransactionHistory();
     $('main').hide();
     $('#js-navigation').show();
     $('#js-view-budget').show();

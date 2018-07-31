@@ -241,7 +241,22 @@ app.post('/subcategory/create', (req, res) => {
         }
     });
 });
-
+//GET subcategory by username
+app.get('/subcategory/get/:username', function (req, res) {
+    console.log(req.params.username);
+    Subcategory.find({
+            username: req.params.username
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item);
+            }
+        });
+});
 
 // -------------transaction ENDPOINTS------------------------------------------------
 // POST -----------------------------------------
@@ -251,6 +266,7 @@ app.post('/transaction/create', (req, res) => {
     let transactionSubcategoryName = req.body.transactionSubcategoryName;
     let transactionMonthName = req.body.transactionMonthName;
     let transactionAmount = req.body.transactionAmount;
+    let incomeExpenseTransaction = req.body.incomeExpenseTransaction;
     let username = req.body.username;
 
     Transaction.create({
@@ -258,6 +274,7 @@ app.post('/transaction/create', (req, res) => {
         transactionSubcategoryName,
         transactionMonthName,
         transactionAmount,
+        incomeExpenseTransaction,
         username
     }, (err, item) => {
         if (err) {
@@ -269,6 +286,23 @@ app.post('/transaction/create', (req, res) => {
             return res.json(item);
         }
     });
+});
+
+//GET transaction by username
+app.get('/transaction/get/:username', function (req, res) {
+    console.log(req.params.username);
+    Transaction.find({
+            username: req.params.username
+        },
+        function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            } else {
+                res.status(200).json(item);
+            }
+        });
 });
 // PUT --------------------------------------
 app.put('/entry/:id', function (req, res) {

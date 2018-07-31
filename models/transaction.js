@@ -19,6 +19,9 @@ const transactionSchema = new mongoose.Schema({
     transactionAmount: {
         type: Number,
         required: false
+    }, incomeExpenseTransaction: {
+        type: String,
+        required: false
     },
     username: {
         type: String,

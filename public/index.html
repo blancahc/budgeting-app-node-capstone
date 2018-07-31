@@ -133,6 +133,7 @@
         </div>
 
         <h2>My Transactions</h2>
+        <div id="displayTransactionHistory"></div>
         <div class="divTable paleBlueRows">
             <div class="divTableHeading">
                 <div class="divTableRow">
@@ -264,11 +265,11 @@
                 <div class="radio-btns">
                     <div class="ui radio checkbox">
                         <label for="negative">Expense (-)</label>
-                        <input type="radio" name="radio" class="negative" value="-">
+                        <input type="radio" name="transaction-radio" class="negative" value="expense" checked="checked">
                     </div>
                     <div class="ui radio checkbox">
                         <label for="positive">Income (+)</label>
-                        <input type="radio" name="radio" class="positive" value="+">
+                        <input type="radio" name="transaction-radio" class="positive" value="income">
                     </div>
                 </div>
             </fieldset>
