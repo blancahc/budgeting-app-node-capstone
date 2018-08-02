@@ -106,22 +106,13 @@ function displayTransactionHistory() {
                 var buildTransactionHistory = "";
 
                 $.each(result, function (resultKey, resultValue) {
-                    console.log(resultValue.transactionMonthName);
-
                     buildTransactionHistory += '<div class="divTableRow">'
-                    '<div class = "divTableCell" >' + resultValue.transactionCategoryName + '</div>'
-                    '<div class = "divTableCell" >' + resultValue.transactionSubcategoryName + '</div>'
-                    '<div class = "divTableCell" >' + resultValue.transactionMonthName + '</div>'
-                    '<div class = "divTableCell" >' + resultValue.transactionAmount + '</div>'
-                    '<div class = "divTableCell" >' + resultValue.incomeExpenseTransaction + '</div>'
-                    '</div>'
-                    //                    </div> + '</p>';
-                    //                    buildTransactionHistory += '<p>' + resultValue.transactionSubcategoryName + '</p>';
-                    //                    buildTransactionHistory += '<p>' + resultValue.transactionMonthName + '</p>';
-                    //                    buildTransactionHistory += '<p>' + resultValue.transactionAmount + '</p>';
-                    //                    buildTransactionHistory += '<p>' + resultValue.incomeExpenseTransaction + '</p>';
-                    //
-
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionCategoryName + '</div>'
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionSubcategoryName + '</div>'
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionMonthName + '</div>'
+                    buildTransactionHistory += '<div class = "divTableCell" id="transactionAmt" value="resultValue.transactionAmount">' + resultValue.transactionAmount + '</div>'
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.incomeExpenseTransaction + '</div>'
+                    buildTransactionHistory += '</div>'
                 });
                 //use the HTML output to show it in the index.html
                 $("#transactionRows").html(buildTransactionHistory);
