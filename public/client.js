@@ -89,6 +89,45 @@ function displaySubcategoryDropdownForTransaction() {
         });
 }
 
+function displaySubcategorySummary() {
+    const username = $('#loggedInUserName').val();
+    console.log(username);
+    $.ajax({
+            type: 'GET',
+            url: '/subcategory/get/' + username,
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function (result) {
+            console.log(result);
+            if ((!result) || (result != undefined) || (result != "")) {
+
+                $("#subcategorySummary").html('');
+                var buildBudgetSummary = "";
+
+                $.each(result, function (resultKey, resultValue) {
+                    buildBudgetSummary += '<div class="divTableRow">';
+                    buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.subcategoryName + '</div>';
+                    buildBudgetSummary += '<div class = "divTableCell" >!!' + resultValue.budgetSubcategoryAmount + '</div>';
+                    buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.budgetSubcategoryAmount + '</div>';
+                    buildBudgetSummary += '<div class = "divTableCell" >!!' + resultValue.budgetSubcategoryAmount + '</div>';
+                    //                    buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.incomeExpenseTransaction + '</div>';
+                    buildBudgetSummary += '</div>';
+
+                });
+                //use the HTML output to show it in the index.html
+                $("#subcategorySummary").html(buildBudgetSummary);
+
+            }
+
+
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
 
 function displayTransactionHistory() {
     const username = $('#loggedInUserName').val();
@@ -104,19 +143,41 @@ function displayTransactionHistory() {
 
                 $("#transactionRows").html('');
                 var buildTransactionHistory = "";
+                var expenseTotal = 0;
+
+                var incomeTotal = 0;
 
                 $.each(result, function (resultKey, resultValue) {
-                    buildTransactionHistory += '<div class="divTableRow">'
-                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionCategoryName + '</div>'
-                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionSubcategoryName + '</div>'
-                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionMonthName + '</div>'
-                    buildTransactionHistory += '<div class = "divTableCell" id="transactionAmt" value="resultValue.transactionAmount">' + resultValue.transactionAmount + '</div>'
-                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.incomeExpenseTransaction + '</div>'
-                    buildTransactionHistory += '</div>'
+                    buildTransactionHistory += '<div class="divTableRow">';
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionCategoryName + '</div>';
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionSubcategoryName + '</div>';
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionMonthName + '</div>';
+                    buildTransactionHistory += '<div class = "divTableCell" id="transactionAmt">' + resultValue.transactionAmount + '</div>';
+                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.incomeExpenseTransaction + '</div>';
+                    buildTransactionHistory += '</div>';
+                    if (resultValue.incomeExpenseTransaction == "expense") {
+                        expenseTotal = expenseTotal + resultValue.transactionAmount;
+                    } else {
+                        incomeTotal = incomeTotal + resultValue.transactionAmount;
+                    }
                 });
                 //use the HTML output to show it in the index.html
                 $("#transactionRows").html(buildTransactionHistory);
+
+                $("#expenseIncomeTotals").html('');
+                var buildIncomeExpenseTotals = "";
+                buildIncomeExpenseTotals += '<div class="divTableRow">';
+                buildIncomeExpenseTotals += '<div class="divTableCell">Total Expenses</div>';
+                buildIncomeExpenseTotals += '<div class="divTableCell" id="totalExpenses">' + expenseTotal + '</div>';
+                buildIncomeExpenseTotals += '<div class="divTableCell">Total Income</div>';
+                buildIncomeExpenseTotals += '<div class="divTableCell" id="totalIncome">' + incomeTotal + '</div>';
+                buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
+                buildIncomeExpenseTotals += '</div>';
+                $("#expenseIncomeTotals").html(buildIncomeExpenseTotals);
+
             }
+
+
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -125,13 +186,13 @@ function displayTransactionHistory() {
         });
 }
 
+
 // Triggers
 
 //when the page loads...
 $(document).ready(function () {
     $("main").hide();
     $("#js-landing-page").show();
-
 });
 
 //When you click on "Sign Up" link, show Sign Up Form
@@ -465,6 +526,7 @@ $(`#js-form-transaction`).on('submit', function (event) {
 //Click on My Budget nav menu uption
 $('#js-nav-budget').on('click', function (event) {
     event.preventDefault();
+    displaySubcategorySummary();
     displayTransactionHistory();
     $('main').hide();
     $('#js-navigation').show();

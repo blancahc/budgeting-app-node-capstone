@@ -255,7 +255,12 @@ app.get('/subcategory/get/:username', function (req, res) {
             } else {
                 res.status(200).json(item);
             }
-        });
+
+            function jsUcfirst(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+        }).sort("subcategoryName");
+
 });
 
 // -------------transaction ENDPOINTS------------------------------------------------

@@ -78,19 +78,18 @@
 
     <!-- Budget View (Here you will be able to see all added Categories and see a summary of spent for each) -->
     <main role="main" id="js-view-budget">
-        <h2>My Budget</h2>
-        <input type="text" class="myInput" onkeyup="myFunction()" placeholder="Filter by Category.."><br>
+        <h2 class="displayBudget">Budgeted vs Spent</h2>
         <input type="text" class="myInput" onkeyup="myFunction()" placeholder="Filter by Month..">
         <div class="divTable paleBlueRows">
             <div class="divTableHeading">
                 <div class="divTableRow">
-                    <div class="divTableHead">Category</div>
+                    <div class="divTableHead">Subcategory</div>
                     <div class="divTableHead">Month</div>
                     <div class="divTableHead">Budgeted</div>
                     <div class="divTableHead">Spent</div>
                 </div>
             </div>
-            <div class="divTableBody">
+            <div class="divTableBody" id="subcategorySummary">
                 <div class="divTableRow">
                     <div class="divTableCell">Shopping</div>
                     <div class="divTableCell">June</div>
@@ -132,7 +131,7 @@
             </div>
         </div>
 
-        <h2>My Transactions</h2>
+        <h2 class="displayBudget">My Transaction History</h2>
         <div id="displayTransactionHistory"></div>
         <div class="divTable paleBlueRows">
             <div class="divTableHeading">
@@ -176,17 +175,9 @@
                 -->
 
             </div>
-            <div class="divTableFoot tableFootStyle">
-                <div class="divTableRow">
-                    <div class="divTableCell">Totals</div>
-                    <div class="divTableCell">-</div>
-                    <div class="divTableCell">-</div>
-                    <div class="divTableCell" id="transactionsTotal"></div>
-                    <div class="divTableCell">-</div>
+            <div class="divTableFoot tableFootStyle" id="expenseIncomeTotals">
 
-                </div>
             </div>
-        </div>
     </main>
     <!-- Add to Budget Page  -->
     <main role="main" id="js-add-to-budget-page">
@@ -213,6 +204,7 @@
                 <label for="subcategoryName">Subcategory Name</label>
                 <input type="name" id="subcategoryName" placeholder='i.e."Clothes"'>
                 <label for="categorybelongs">Category it Belongs To</label>
+                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
                 <select name="subcategorybelongs" id="categoryBelongs" class="subcategory">
            <option value="Medical">Medical</option>
             </select>
@@ -238,11 +230,12 @@
             <fieldset>
 
                 <label for="category">Select a Category:</label>
+                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
                 <select name="category-selection" id="transactionCategory">
                 <option value="Medical">Medical</option>
             </select>
                 <label for="subcategory">Select a Subcategory:</label>
-
+                <p class="formMessage">If you don't see a desired Subcategory option, first add it by clicking on "+ Subcategory" in the navigation bar.</p>
                 <select name="subcategory-selection" class="subcategory" id="transactionSubcategoryName">
                 <option value="Dentist">Dentist</option>
             </select>
