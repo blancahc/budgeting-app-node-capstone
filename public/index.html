@@ -78,60 +78,29 @@
 
     <!-- Budget View (Here you will be able to see all added Categories and see a summary of spent for each) -->
     <main role="main" id="js-view-budget">
-        <h2 class="displayBudget">Budgeted vs Spent</h2>
-        <input type="text" class="myInput" onkeyup="myFunction()" placeholder="Filter by Month..">
+        <h2 class="displayBudget">Monthly Budget</h2>
         <div class="divTable paleBlueRows">
             <div class="divTableHeading">
                 <div class="divTableRow">
                     <div class="divTableHead">Subcategory</div>
-                    <div class="divTableHead">Month</div>
                     <div class="divTableHead">Budgeted</div>
-                    <div class="divTableHead">Spent</div>
                 </div>
             </div>
             <div class="divTableBody" id="subcategorySummary">
+                <!--
                 <div class="divTableRow">
-                    <div class="divTableCell">Shopping</div>
-                    <div class="divTableCell">June</div>
-                    <div class="divTableCell">500</div>
-                    <div class="divTableCell">300</div>
+
                 </div>
-                <div class="divTableRow">
-                    <div class="divTableCell">Automobile</div>
-                    <div class="divTableCell">June</div>
-                    <div class="divTableCell">300</div>
-                    <div class="divTableCell">112</div>
-                </div>
-                <div class="divTableRow">
-                    <div class="divTableCell">Shopping</div>
-                    <div class="divTableCell">July</div>
-                    <div class="divTableCell">300</div>
-                    <div class="divTableCell">50</div>
-                </div>
-                <div class="divTableRow">
-                    <div class="divTableCell">Health</div>
-                    <div class="divTableCell">June</div>
-                    <div class="divTableCell">100</div>
-                    <div class="divTableCell">100</div>
-                </div>
-                <div class="divTableRow">
-                    <div class="divTableCell">Automobile</div>
-                    <div class="divTableCell">July</div>
-                    <div class="divTableCell">300</div>
-                    <div class="divTableCell">245</div>
-                </div>
+-->
             </div>
-            <div class="divTableFoot tableFootStyle">
-                <div class="divTableRow">
-                    <div class="divTableCell">Totals</div>
-                    <div class="divTableCell">-</div>
-                    <div class="divTableCell">1200</div>
-                    <div class="divTableCell">896</div>
-                </div>
+            <div class="divTableFoot tableFootStyle" id="budgetTotals">
+
             </div>
         </div>
 
-        <h2 class="displayBudget">My Transaction History</h2>
+        <h2 class="displayBudget">Spent</h2>
+        <input type="text" class="myInput" onkeyup="myFunction()" placeholder="Filter by Month..">
+        <input type="text" class="myInput" onkeyup="myFunction()" placeholder="Filter by Subcategory..">
         <div id="displayTransactionHistory"></div>
         <div class="divTable paleBlueRows">
             <div class="divTableHeading">
@@ -144,35 +113,6 @@
                 </div>
             </div>
             <div class="divTableBody" id="transactionRows">
-
-                <!--
-
-                <div class="divTableRow">
-                    <div class="divTableCell">Shopping</div>
-                    <div class="divTableCell">Groceries</div>
-                    <div class="divTableCell">June</div>
-                    <div class="divTableCell">120</div>
-                </div>
-                <div class="divTableRow">
-                    <div class="divTableCell">Health</div>
-                    <div class="divTableCell">Dentist</div>
-                    <div class="divTableCell">July</div>
-                    <div class="divTableCell">90</div>
-                </div>
-                <div class="divTableRow">
-                    <div class="divTableCell">Health</div>
-                    <div class="divTableCell">Doctor</div>
-                    <div class="divTableCell">August</div>
-                    <div class="divTableCell">89</div>
-                </div>
-                <div class="divTableRow">
-                    <div class="divTableCell">Shopping</div>
-                    <div class="divTableCell">Clothes</div>
-                    <div class="divTableCell">June</div>
-                    <div class="divTableCell">200</div>
-                </div>
--->
-                -->
 
             </div>
             <div class="divTableFoot tableFootStyle" id="expenseIncomeTotals">
