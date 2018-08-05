@@ -99,10 +99,10 @@
         </div>
 
         <h2 class="displayBudget">Spent</h2>
-        <input type="text" class="myInput" onkeyup="myFunction()" placeholder="Filter by Month..">
-        <input type="text" class="myInput" onkeyup="myFunction()" placeholder="Filter by Subcategory..">
+        <input type="text" class="myInput" id="monthFilter" placeholder="Filter by Month.."><br>
+        <input type="text" class="myInput" id="subcategoryFilter" placeholder="Filter by Subcategory..">
         <div id="displayTransactionHistory"></div>
-        <div class="divTable paleBlueRows">
+        <div class="divTable paleBlueRows" id="transactionTable">
             <div class="divTableHeading">
                 <div class="divTableRow">
                     <div class="divTableHead">Category</div>
@@ -144,20 +144,20 @@
                 <label for="subcategoryName">Subcategory Name</label>
                 <input type="name" id="subcategoryName" placeholder='i.e."Clothes"'>
                 <label for="categorybelongs">Category it Belongs To</label>
-                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
                 <select name="subcategorybelongs" id="categoryBelongs" class="subcategory">
            <option value="Medical">Medical</option>
             </select>
+                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
                 <label for="dollar-value">Monthly Budget for Subcategory:</label>
                 <input type="number" name="value" class="dollar-value" id="bugetsubcategory" placeholder="0.00" step="0.01" min="0">
                 <div class="radio-btns">
                     <div class="ui radio checkbox">
                         <label for="negative">Expense (-)</label>
-                        <input type="radio" name='subcategory-radio' class="negative" value="expense" checked="checked">
+                        <input type="radio" name='subcategory-radio' class="negative" value="Expense" checked="checked">
                     </div>
                     <div class="ui radio checkbox">
                         <label for="positive">Income (+)</label>
-                        <input type="radio" name='subcategory-radio' class="positive" value="income">
+                        <input type="radio" name='subcategory-radio' class="positive" value="Income">
                     </div>
                 </div>
             </fieldset>
@@ -170,41 +170,39 @@
             <fieldset>
 
                 <label for="category">Select a Category:</label>
-                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
                 <select name="category-selection" id="transactionCategory">
                 <option value="Medical">Medical</option>
             </select>
+                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
                 <label for="subcategory">Select a Subcategory:</label>
-                <p class="formMessage">If you don't see a desired Subcategory option, first add it by clicking on "+ Subcategory" in the navigation bar.</p>
                 <select name="subcategory-selection" class="subcategory" id="transactionSubcategoryName">
-                <option value="Dentist">Dentist</option>
             </select>
-
+                <p class="formMessage">If you don't see a desired Subcategory option, first add it by clicking on "+ Subcategory" in the navigation bar.</p>
                 <label for="transactionMonth">Transaction Month:</label>
                 <select name="transactionMonth" id="transactionMonth">
-                <option value="january">Jan</option>
-                <option value="february">Feb</option>
-                <option value="march">Mar</option>
-                <option value="april">Apr</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">Aug</option>
-                <option value="september">Sept</option>
-                <option value="october">Oct</option>
-                <option value="november">Nov</option>
-                <option value="dec">Dec</option>
+                <option value="January">Jan</option>
+                <option value="February">Feb</option>
+                <option value="March">Mar</option>
+                <option value="April">Apr</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">Aug</option>
+                <option value="September">Sept</option>
+                <option value="October">Oct</option>
+                <option value="November">Nov</option>
+                <option value="Dec">Dec</option>
             </select>
                 <label for="dollar-value">Transaction Amount:</label>
                 <input type="number" name="value" class="dollar-value" id="transactionAmount" placeholder="0.00" step="0.01" min="0">
                 <div class="radio-btns">
                     <div class="ui radio checkbox">
                         <label for="negative">Expense (-)</label>
-                        <input type="radio" name="transaction-radio" class="negative" value="expense" checked="checked">
+                        <input type="radio" name="transaction-radio" class="negative" value="Expense" checked="checked">
                     </div>
                     <div class="ui radio checkbox">
                         <label for="positive">Income (+)</label>
-                        <input type="radio" name="transaction-radio" class="positive" value="income">
+                        <input type="radio" name="transaction-radio" class="positive" value="Income">
                     </div>
                 </div>
             </fieldset>

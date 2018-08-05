@@ -114,7 +114,7 @@ function displaySubcategorySummary() {
                     buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.subcategoryName + '</div>';
                     buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.budgetSubcategoryAmount + '</div>';
                     buildBudgetSummary += '</div>';
-                    if (resultValue.incomeExpense == "expense") {
+                    if (resultValue.incomeExpense == "Expense") {
                         expenseBudgetTotal = expenseBudgetTotal + resultValue.budgetSubcategoryAmount;
                     } else {
                         incomeBudgetTotal = incomeBudgetTotal + resultValue.budgetSubcategoryAmount;
@@ -138,7 +138,6 @@ function displaySubcategorySummary() {
             console.log(errorThrown);
         });
 }
-
 
 function displayTransactionHistory() {
     const username = $('#loggedInUserName').val();
@@ -167,7 +166,7 @@ function displayTransactionHistory() {
                     buildTransactionHistory += '<div class = "divTableCell" id="transactionAmt">' + resultValue.transactionAmount + '</div>';
                     buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.incomeExpenseTransaction + '</div>';
                     buildTransactionHistory += '</div>';
-                    if (resultValue.incomeExpenseTransaction == "expense") {
+                    if (resultValue.incomeExpenseTransaction == "Expense") {
                         expenseTotal = expenseTotal + resultValue.transactionAmount;
                     } else {
                         incomeTotal = incomeTotal + resultValue.transactionAmount;
@@ -176,21 +175,17 @@ function displayTransactionHistory() {
                 });
                 //use the HTML output to show it in the index.html
                 $("#transactionRows").html(buildTransactionHistory);
-
-                $("#expenseIncomeTotals").html('');
-                var buildIncomeExpenseTotals = "";
-                buildIncomeExpenseTotals += '<div class="divTableRow">';
-                buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
-                buildIncomeExpenseTotals += '<div class="divTableCell" id="totalExpenses">Total Expenses: ' + expenseTotal + '</div>';
-                buildIncomeExpenseTotals += '<div class="divTableCell" id="totalIncome">Total Income:' + incomeTotal + '</div>';
-                buildIncomeExpenseTotals += '<div class="divTableCell">Difference: ' + difference + '</div>';
-                buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
-                buildIncomeExpenseTotals += '</div>';
-                $("#expenseIncomeTotals").html(buildIncomeExpenseTotals);
-
             }
-
-
+            $("#expenseIncomeTotals").html('');
+            var buildIncomeExpenseTotals = "";
+            buildIncomeExpenseTotals += '<div class="divTableRow">';
+            buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
+            buildIncomeExpenseTotals += '<div class="divTableCell" id="totalExpenses">Total Expenses: ' + expenseTotal + '</div>';
+            buildIncomeExpenseTotals += '<div class="divTableCell" id="totalIncome">Total Income:' + incomeTotal + '</div>';
+            buildIncomeExpenseTotals += '<div class="divTableCell">Difference: ' + difference + '</div>';
+            buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
+            buildIncomeExpenseTotals += '</div>';
+            $("#expenseIncomeTotals").html(buildIncomeExpenseTotals);
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -199,7 +194,14 @@ function displayTransactionHistory() {
         });
 }
 
-
+function filterByMonth() {
+    $("#monthFilter").keyup(function () {
+        var value = $(this).val().toLowerCase();
+        $("#transactionTable").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+}
 // Triggers
 
 //when the page loads...
@@ -541,6 +543,7 @@ $('#js-nav-budget').on('click', function (event) {
     event.preventDefault();
     displaySubcategorySummary();
     displayTransactionHistory();
+    filterByMonth();
     $('main').hide();
     $('#js-navigation').show();
     $('#js-view-budget').show();
