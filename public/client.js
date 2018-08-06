@@ -160,7 +160,16 @@ function displayTransactionHistory() {
 
                 $.each(result, function (resultKey, resultValue) {
                     buildTransactionHistory += '<div class="divTableRow">';
-                    buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionCategoryName + '</div>';
+
+                    buildTransactionHistory += '<div class = "divTableCell" >';
+                    buildTransactionHistory += resultValue.transactionCategoryName;
+                    buildTransactionHistory += '<form class="deleteTransactionForm">';
+                    buildTransactionHistory += '<input type="hidden" class="deleteTransactionItem" value="' + resultValue._id + '" >';
+                    buildTransactionHistory += '<button type="submit" class="deleteItemButton" value="">';
+                    buildTransactionHistory += '<i class="fa fa-minus-square-o" aria-hidden="true"></i>';
+                    buildTransactionHistory += '</button>';
+                    buildTransactionHistory += '</form>';
+                    buildTransactionHistory += '</div>';
                     buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionSubcategoryName + '</div>';
                     buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.transactionMonthName + '</div>';
                     buildTransactionHistory += '<div class = "divTableCell" id="transactionAmt">' + resultValue.transactionAmount + '</div>';
@@ -543,7 +552,6 @@ $('#js-nav-budget').on('click', function (event) {
     event.preventDefault();
     displaySubcategorySummary();
     displayTransactionHistory();
-    filterByMonth();
     $('main').hide();
     $('#js-navigation').show();
     $('#js-view-budget').show();
@@ -562,4 +570,30 @@ $('#js-nav-add-budget').on('click', function (event) {
 
 $('#js-signout-button').on('click', function (event) {
     location.reload();
+});
+
+////User will be able to remove item from transactions history
+$(document).on('submit', '.deleteTransactionForm', function (event) {
+    event.preventDefault();
+    let transactionIdToDelete = $(this).parent().find('.deleteTransactionItem').val();
+    let transactionObject = {
+        'id': transactionIdToDelete
+    };
+    $.ajax({
+            method: 'DELETE',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/delete-from-transaction-list/' + transactionIdToDelete,
+        })
+        .done(function (result) {
+            displaySubcategorySummary();
+            displayTransactionHistory();
+            alert('Removed!', 'Maybe next time...', 'success');
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            alert('Oops...', 'Please try again', 'error');
+        });
 });
