@@ -80,6 +80,7 @@
     <!-- Budget View (Here you will be able to see all added Categories and see a summary of spent for each) -->
     <main role="main" id="js-view-budget">
         <h2 class="displayBudget">Monthly Budget</h2>
+        <p class="textBox">Hint: To change budget amount, delete from this table and go to "Add to My Budget" > "Add Subcategory" and add same subcategory name with different monthly budget amount.</p>
         <div class="divTable paleBlueRows">
             <div class="divTableHeading">
                 <div class="divTableRow">
@@ -99,9 +100,8 @@
             </div>
         </div>
 
+
         <h2 class="displayBudget">Spent</h2>
-        <input type="text" class="myInput" id="monthFilter" placeholder="Filter by Month.."><br>
-        <input type="text" class="myInput" id="subcategoryFilter" placeholder="Filter by Subcategory..">
         <div id="displayTransactionHistory"></div>
         <div class="divTable paleBlueRows" id="transactionTable">
             <div class="divTableHeading">

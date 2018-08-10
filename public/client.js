@@ -111,7 +111,16 @@ function displaySubcategorySummary() {
 
                 $.each(result, function (resultKey, resultValue) {
                     buildBudgetSummary += '<div class="divTableRow">';
-                    buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.subcategoryName + '</div>';
+                    buildBudgetSummary += '<div class = "divTableCell" >';
+                    buildBudgetSummary += resultValue.subcategoryName;
+                    buildBudgetSummary += '<form class="deleteBudgetTable">';
+                    buildBudgetSummary += '<input type="hidden" class="deleteSubcategoryItem" value="' + resultValue._id + '" >';
+                    buildBudgetSummary += '<button type="submit" class="deleteItemButton" value="">';
+                    buildBudgetSummary += '<i class="fa fa-minus-square-o" aria-hidden="true"></i>';
+                    buildBudgetSummary += '</button>';
+                    buildBudgetSummary += '</form>';
+                    buildBudgetSummary += '</div>';
+                    //                    buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.subcategoryName + '</div>';
                     buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.budgetSubcategoryAmount + '</div>';
                     buildBudgetSummary += '</div>';
                     if (resultValue.incomeExpense == "Expense") {
@@ -203,14 +212,6 @@ function displayTransactionHistory() {
         });
 }
 
-function filterByMonth() {
-    $("#monthFilter").keyup(function () {
-        var value = $(this).val().toLowerCase();
-        $("#transactionTable").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-}
 // Triggers
 
 //when the page loads...
@@ -570,6 +571,32 @@ $('#js-nav-add-budget').on('click', function (event) {
 
 $('#js-signout-button').on('click', function (event) {
     location.reload();
+});
+
+////User will be able to remove item from Budget table
+$(document).on('submit', '.deleteBudgetTable', function (event) {
+    event.preventDefault();
+    let subcategoryIdToDelete = $(this).parent().find('.deleteSubcategoryItem').val();
+    let subcategoryObject = {
+        'id': subcategoryIdToDelete
+    };
+    $.ajax({
+            method: 'DELETE',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/delete-from-subcategory-list/' + subcategoryIdToDelete,
+        })
+        .done(function (result) {
+            displaySubcategorySummary();
+            displayTransactionHistory();
+            alert('Removed!', 'Maybe next time...', 'success');
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            alert('Oops...', 'Please try again', 'error');
+        });
 });
 
 ////User will be able to remove item from transactions history

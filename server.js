@@ -448,9 +448,18 @@ app.get('/entry/:id', function (req, res) {
 });
 
 // DELETE ----------------------------------------
-// deleting an achievement by id
+// deleting a transaction by id
 app.delete('/delete-from-transaction-list/:id', function (req, res) {
     Transaction.findByIdAndRemove(req.params.id).exec().then(function (entry) {
+        return res.status(204).end();
+    }).catch(function (err) {
+        return res.status(500).json({
+            message: 'Internal Server Error'
+        });
+    });
+}); // deleting an budgetsubcategory by id
+app.delete('/delete-from-subcategory-list/:id', function (req, res) {
+    Subcategory.findByIdAndRemove(req.params.id).exec().then(function (entry) {
         return res.status(204).end();
     }).catch(function (err) {
         return res.status(500).json({
