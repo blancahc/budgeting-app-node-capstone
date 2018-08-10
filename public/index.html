@@ -101,7 +101,7 @@
         </div>
 
 
-        <h2 class="displayBudget">Spent</h2>
+        <h2 class="displayBudget">Spent / Transaction History</h2>
         <div id="displayTransactionHistory"></div>
         <div class="divTable paleBlueRows" id="transactionTable">
             <div class="divTableHeading">
@@ -123,9 +123,9 @@
     <!-- Add to Budget Page  -->
     <main role="main" id="js-add-to-budget-page">
         <ul id="add-to-budget-options">
+            <li><a href="#" id="js-nav-add-transaction">+ Transaction</a></li>
             <li><a href="#" id="js-nav-add-category">+ Category</a></li>
             <li><a href="#" id="js-nav-add-subcategory">+ Subcategory</a></li>
-            <li><a href="#" id="js-nav-add-transaction">+ Transaction</a></li>
         </ul>
         <div id="js-added-to-budget">
             <h3 class='textBox'>Added!</h3>
@@ -174,11 +174,11 @@
                 <select name="category-selection" id="transactionCategory">
                 <option value="Medical">Medical</option>
             </select>
-                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
+                <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the sub navigation bar.</p>
                 <label for="subcategory">Select a Subcategory:</label>
                 <select name="subcategory-selection" class="subcategory" id="transactionSubcategoryName">
             </select>
-                <p class="formMessage">If you don't see a desired Subcategory option, first add it by clicking on "+ Subcategory" in the navigation bar.</p>
+                <p class="formMessage">If you don't see a desired Subcategory option, first add it by clicking on "+ Subcategory" in the sub navigation bar.</p>
                 <label for="transactionMonth">Transaction Month:</label>
                 <select name="transactionMonth" id="transactionMonth">
                 <option value="January">Jan</option>

@@ -322,14 +322,17 @@ $(`#js-sign-in-form`).on('submit', function (event) {
             })
             //if call is succefull
             .done(function (result) {
-                console.log(result);
-                $("main").hide();
-                $("form").hide();
-                $('#js-added-to-budget').hide();
-                $("#js-navigation").show();
-                $("#js-add-to-budget-page").show();
-                $("#js-form-category").show();
                 $('#loggedInUserName').val(result.username);
+                displayCategoryDropdownForTransaction();
+                displaySubcategoryDropdownForTransaction();
+                console.log(result);
+                $('main').hide();
+                $('form').hide();
+                $('#js-added-to-budget').hide();
+                $('#js-added-to-budget').hide();
+                $('#js-form-transaction').show();
+                $('#js-navigation').show();
+                $('#js-add-to-budget-page').show();
 
             })
             //if the call is failing
@@ -561,12 +564,15 @@ $('#js-nav-budget').on('click', function (event) {
 //Click on Add to My Budget nav menu uption
 $('#js-nav-add-budget').on('click', function (event) {
     event.preventDefault();
-    $("main").hide();
-    $("form").hide();
+    displayCategoryDropdownForTransaction();
+    displaySubcategoryDropdownForTransaction();
+    $('main').hide();
+    $('form').hide();
     $('#js-added-to-budget').hide();
-    $("#js-navigation").show();
-    $("#js-add-to-budget-page").show();
-    $("#js-form-category").show();
+    $('#js-added-to-budget').hide();
+    $('#js-form-transaction').show();
+    $('#js-navigation').show();
+    $('#js-add-to-budget-page').show();
 });
 
 $('#js-signout-button').on('click', function (event) {
