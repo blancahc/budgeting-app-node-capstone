@@ -8,9 +8,9 @@ var chai = require('chai');
 
 var chaiHttp = require('chai-http');
 
-var Transaction = require('./models/transaction.js');
-var Category = require('./models/category.js');
-var Subcategory = require('./models/subcategory.js');
+var Transaction = require('../models/transaction.js');
+var Category = require('../models/category.js');
+var Subcategory = require('../models/subcategory.js');
 
 var should = chai.should();
 
