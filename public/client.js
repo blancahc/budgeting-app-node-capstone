@@ -14,7 +14,7 @@ function displayCategoryDropdownForSubcategory() {
 
                 $("#categoryBelongs").html('');
                 var buildCategoryDropdownOutput = "";
-                buildCategoryDropdownOutput += '<option value="addCategory">add category</option>';
+                buildCategoryDropdownOutput += '<option value="addCategory">select a category</option>';
                 $.each(result, function (resultKey, resultValue) {
                     buildCategoryDropdownOutput += '<option value="' + resultValue.categoryName + '">' + resultValue.categoryName + '</option>';
                 });
@@ -44,7 +44,7 @@ function displayCategoryDropdownForTransaction() {
 
                 $("#transactionCategory").html('');
                 var buildCategoryDropdownOutput = "";
-                buildCategoryDropdownOutput += '<option value="addCategory">add category</option>';
+                buildCategoryDropdownOutput += '<option value="addCategory">select a category</option>';
                 $.each(result, function (resultKey, resultValue) {
                     buildCategoryDropdownOutput += '<option value="' + resultValue.categoryName + '">' + resultValue.categoryName + '</option>';
                 });
@@ -74,7 +74,7 @@ function displaySubcategoryDropdownForTransaction() {
 
                 $("#transactionSubcategoryName").html('');
                 var buildSubcategoryDropdownOutput = "";
-                buildSubcategoryDropdownOutput += '<option value="addSubcategory">add subcategory</option>';
+                buildSubcategoryDropdownOutput += '<option value="addSubcategory">select a subcategory</option>';
                 $.each(result, function (resultKey, resultValue) {
                     buildSubcategoryDropdownOutput += '<option value="' + resultValue.subcategoryName + '">' + resultValue.subcategoryName + '</option>';
                 });

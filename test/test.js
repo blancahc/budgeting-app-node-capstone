@@ -16,13 +16,13 @@ var should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('shakespeare-passport-node-capstone', function () {
+describe('budgeting-app-node-capstone', function () {
     it('should add an entry on POST', function () {
         chai.request(app)
             .post('/category/create')
             .send({
-            categoryName: "testCategoryName",
-            username: "testusername",
+                categoryName: "testCategoryName",
+                username: "testusername",
             })
             .then(function (err, res) {
                 //should.equal(err, null);
@@ -38,7 +38,7 @@ describe('shakespeare-passport-node-capstone', function () {
     it('Should Delete an entry', function () {
 
         chai.request(app)
-            .delete('/delete-from-transaction-list/:id')
+            .delete('/delete-from-subcategory-list/:id')
             .then(function (res) {
                 res.should.have.status(201);
                 done();

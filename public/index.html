@@ -14,7 +14,7 @@
 <body>
     <input type="hidden" id="loggedInUserName" value="">
     <!-- *****************************************Landing Page************************************************************       -->
-    <main role="main" id="js-landing-page">
+    <main role="main" id="js-landing-page" aria-live="assertive">
         <div class="textBox">
             <img id="mainImg" src="images/eye-budget-icon.jpg" alt="eye budget icon image">
             <h1>Budgeting Just Got Easy and Personalized with <span class="appName">EyeBudget</span>
@@ -47,7 +47,7 @@
     </main>
 
     <!-- *****************************************Sign Up Page************************************************************       -->
-    <main role="main" id="js-sign-up-page">
+    <main role="main" id="js-sign-up-page" aria-live="assertive">
         <form class="sign-in-up-form" id="js-sign-up-form">
             <legend>Sign up</legend>
             <fieldset>
@@ -64,7 +64,7 @@
         </form>
     </main>
     <!-- *****************************************Navigation when Logged In************************************************************ -->
-    <main role="main" id="js-navigation">
+    <main role="main" id="js-navigation" aria-live="assertive">
         <nav class="navbar">
             <span class="nav-options">
                     <ul>
@@ -78,7 +78,7 @@
     </main>
 
     <!-- Budget View (Here you will be able to see all added Categories and see a summary of spent for each) -->
-    <main role="main" id="js-view-budget">
+    <main role="main" id="js-view-budget" aria-live="assertive">
         <h2 class="displayBudget">Monthly Budget</h2>
         <p class="hint">Hint: To change budget amount, delete from this table and go to "Add to My Budget" > "Add Subcategory" and add same subcategory name with different monthly budget amount.</p>
         <div class="divTable paleBlueRows">
@@ -121,7 +121,7 @@
             </div>
     </main>
     <!-- Add to Budget Page  -->
-    <main role="main" id="js-add-to-budget-page">
+    <main role="main" id="js-add-to-budget-page" aria-live="assertive">
         <ul id="add-to-budget-options">
             <li><a href="#" id="js-nav-add-transaction">+ Transaction</a></li>
             <li><a href="#" id="js-nav-add-category">+ Category</a></li>
@@ -133,7 +133,7 @@
         <form id="js-form-category" class="add-to-budget-form">
             <legend>Add Category</legend>
             <fieldset>
-                <label for="categoryName">Category Name</label>
+                <label for="categoryName">Create Category Name</label>
                 <input type="name" id="categoryName" placeholder='i.e."Shopping"'>
             </fieldset>
             <button type="submit" class="submit-button">Add</button>
@@ -142,14 +142,14 @@
         <form id="js-form-subcategory" class="add-to-budget-form">
             <legend>Add Subcategory</legend>
             <fieldset>
-                <label for="subcategoryName">Subcategory Name</label>
+                <label for="subcategoryName">Create Subcategory Name</label>
                 <input type="name" id="subcategoryName" placeholder='i.e."Clothes"'>
-                <label for="categorybelongs">Category it Belongs To</label>
+                <label for="categorybelongs">Select Category it Belongs To</label>
                 <select name="subcategorybelongs" id="categoryBelongs" class="subcategory">
            <option value="Medical">Medical</option>
             </select>
                 <p class="formMessage">If you don't see a desired Category option, first add it by clicking on "+ Category" in the navigation bar.</p>
-                <label for="dollar-value">Monthly Budget for Subcategory:</label>
+                <label for="dollar-value">Enter Monthly Budget for Subcategory:</label>
                 <input type="number" name="value" class="dollar-value" id="bugetsubcategory" placeholder="0.00" step="0.01" min="0">
                 <div class="radio-btns">
                     <div class="ui radio checkbox">
@@ -179,7 +179,7 @@
                 <select name="subcategory-selection" class="subcategory" id="transactionSubcategoryName">
             </select>
                 <p class="formMessage">If you don't see a desired Subcategory option, first add it by clicking on "+ Subcategory" in the sub navigation bar.</p>
-                <label for="transactionMonth">Transaction Month:</label>
+                <label for="transactionMonth">Select Transaction Month:</label>
                 <select name="transactionMonth" id="transactionMonth">
                 <option value="Jan">Jan</option>
                 <option value="Feb">Feb</option>
@@ -195,7 +195,7 @@
                 <option value="Dec">Dec</option>
             </select>
                 <label for="dollar-value">Transaction Amount:</label>
-                <input type="number" name="value" class="dollar-value" id="transactionAmount" placeholder="0.00" step="0.01" min="0">
+                <input type="number" name="value" class="dollar-value" id="transactionAmount" placeholder="Enter transaction amount" step="0.01" min="0">
                 <div class="radio-btns">
                     <div class="ui radio checkbox">
                         <label for="negative">Expense (-)</label>
@@ -212,7 +212,7 @@
     </main>
 
     <!--Add Transactions(Here you will be able to add categories/subcategories and transactions of money spent or income.) -->
-    <main role="main" id="add-transactions-categories"></main>
+    <main role="main" id="add-transactions-categories" aria-live="assertive"></main>
 
     <footer>
         <p>Blanca Hernandez | Copyright 2018</p>
