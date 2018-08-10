@@ -28,6 +28,7 @@ html {
     text-align: center;
 }
 
+
 #mainImg {
     display: inline-block;
     border-radius: 8px;
@@ -129,12 +130,10 @@ button:hover {
 }
 
 .navbar {
-    max-width: 1000px;
     background-color: black;
     opacity: .9;
-    margin: -10px auto 0 auto;
+    margin: -10px auto 30px auto;
     text-align: center;
-    border-radius: 8px;
 }
 
 .navbar ul {
@@ -187,6 +186,17 @@ button:hover {
     color: white;
     border-radius: 8px;
 
+}
+
+.hint {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: .9;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    font-size: .8rem;
 }
 
 .myInput {
@@ -290,14 +300,12 @@ div.paleBlueRows {
 /******Add Categories/SubCategorie/Transactions form******/
 
 #add-to-budget-options {
-    max-width: 1000px;
     text-align: center;
     vertical-align: middle;
     padding-top: 10px;
     background-color: white;
     opacity: .9;
-    margin: 0 auto 30px auto;
-    border-radius: 8px;
+    margin: -30px auto 30px auto;
 
 }
 
@@ -396,4 +404,16 @@ footer {
     margin-top: 20px;
     opacity: .9;
     padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar ul > li {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #add-to-budget-options li {
+        width: 100%;
+    }
 }

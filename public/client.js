@@ -136,8 +136,8 @@ function displaySubcategorySummary() {
             $("#budgetTotals").html('');
             var buildBudgetTotals = "";
             buildBudgetTotals += '<div class="divTableRow">';
-            buildBudgetTotals += '<div class="divTableCell">Monthly Budgeted Income Total: ' + incomeBudgetTotal + '</div>';
-            buildBudgetTotals += '<div class="divTableCell">Monthly Budgeted Expense Total: ' + expenseBudgetTotal + '</div>';
+            buildBudgetTotals += '<div class="divTableCell">Monthly Budgeted Income Total:</br>' + incomeBudgetTotal + '</div>';
+            buildBudgetTotals += '<div class="divTableCell">Monthly Budgeted Expense Total:</br> ' + expenseBudgetTotal + '</div>';
             buildBudgetTotals += '</div>';
             $("#budgetTotals").html(buildBudgetTotals);
         })
@@ -198,9 +198,9 @@ function displayTransactionHistory() {
             var buildIncomeExpenseTotals = "";
             buildIncomeExpenseTotals += '<div class="divTableRow">';
             buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
-            buildIncomeExpenseTotals += '<div class="divTableCell" id="totalExpenses">Total Expenses: ' + expenseTotal + '</div>';
-            buildIncomeExpenseTotals += '<div class="divTableCell" id="totalIncome">Total Income:' + incomeTotal + '</div>';
-            buildIncomeExpenseTotals += '<div class="divTableCell">Difference: ' + difference + '</div>';
+            buildIncomeExpenseTotals += '<div class="divTableCell" id="totalExpenses">Total Expenses:</br> ' + expenseTotal + '</div>';
+            buildIncomeExpenseTotals += '<div class="divTableCell" id="totalIncome">Total Income:</br>' + incomeTotal + '</div>';
+            buildIncomeExpenseTotals += '<div class="divTableCell">Difference:</br>' + difference + '</div>';
             buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
             buildIncomeExpenseTotals += '</div>';
             $("#expenseIncomeTotals").html(buildIncomeExpenseTotals);
