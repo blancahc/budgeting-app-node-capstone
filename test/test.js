@@ -8,9 +8,9 @@ var chai = require('chai');
 
 var chaiHttp = require('chai-http');
 
-var Transaction = require('./models/entry.js');
-var Category = require('./models/category');
-var Subcategory = require('./models/subcategory');
+var Transaction = require('./models/transaction.js');
+var Category = require('./models/category.js');
+var Subcategory = require('./models/subcategory.js');
 
 var should = chai.should();
 
@@ -38,7 +38,7 @@ describe('budgeting-app-node-capstone', function () {
     it('Should Delete an entry', function () {
 
         chai.request(app)
-            .delete('/delete-from-subcategory-list/:id')
+            .delete('/delete-from-transaction-list/:id')
             .then(function (res) {
                 res.should.have.status(201);
                 done();
