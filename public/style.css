@@ -333,7 +333,7 @@ div.paleBlueRows {
     margin: 0 auto 30px auto;
     background-color: #FFFF;
     color: #0E2E45;
-    max-width: 350px;
+    max-width: 400px;
     border: black solid 1px;
     border-radius: 7px;
     font-size: 1.3rem;
@@ -420,14 +420,15 @@ footer {
 
 @media only screen and (max-width: 750px) {
     .navbar {
-        width: 100%;
+        max-width: 500px;
     }
     footer {
-        width: 100%
+        max-width: 500px;
     }
 
-    #add-to-budget-options li {
-        width: 100%;
+    #add-to-budget-options {
+        max-width: 500px;
+        padding-bottom: 5px;
     }
 
     html {
@@ -437,61 +438,35 @@ footer {
     .formMessage {
         font-size: 1.1rem;
     }
+    .displayBudget {
+        background-color: black;
+        max-width: 500px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+        color: white;
+        border-radius: 8px;
 
+    }
+    .hint {
+        background-color: white;
+        padding: 10px;
+        border-radius: 8px;
+        opacity: .9;
+        max-width: 500px;
+        margin: 0 auto 30px auto;
+        text-align: center;
+        font-size: .8rem;
+    }
 }
 
-.displayBudget {
-    background-color: black;
-    max-width: 500px;
-    margin: 0 auto 30px auto;
-    text-align: center;
-    color: white;
-    border-radius: 8px;
-
-}
-
-.hint {
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
-    opacity: .9;
-    max-width: 500px;
-    margin: 0 auto 30px auto;
-    text-align: center;
-    font-size: .8rem;
-}
-
-}
 
 @media only screen and (max-width: 512px) {
     .navbar {
         width: 100%;
     }
-    .navbar ul > li {
-        width: 100%;
-    }
 
-    #add-to-budget-options {
-        width: 100%;
-    }
-
-    footer {
-        width: 100%
-    }
-
-    #add-to-budget-options li {
-        width: 100%;
-    }
-
-    html {
-        font-size: 60%;
-    }
-
-    .formMessage {
-        font-size: 1.1rem;
-    }
-    .hint {
-        font-size: 1.1rem;
+    .navbar li {
+        display: block;
     }
 
     #add-to-budget-options {
