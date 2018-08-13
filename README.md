@@ -5,11 +5,13 @@ Live Pre-view available at https://budgeting-app-node-capstone.herokuapp.com/
 
 This is a simple budgeting app where someone can create their own spending categories and subcategories for their budget each month and track expenses.
 
-
-
 # Screenshots
-???![image1](https://github.com/kimcheru18/non-verbal-communication-fullstack-capstone/blob/master/github-images/landing-page.png)
-
+[image1](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/landing-page-ss.png)
+[Sign-Up Page](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/sign-up-page-ss.png)
+[Add Transaction](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-transaction-ss.png)
+[Add Category](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-category-ss.png)
+[Add Subcategory](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-subcategory-ss.png)
+[View Budget & Transactions](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/view-budget-transactions-ss.png)
 # User Stories & Initial UX
 As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUSTIFICATION}.'
 ![UI Flow](git-hub-images/ui-flow.jpg)
@@ -21,16 +23,16 @@ As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUST
 2. As a visitor, I want to be able to easily sign-up to be able to use the application. In any page, I should be able to sign out.
 ![Sign-Up Page](git-hub-images/signup-page.jpg)
 
-3. As a user, I want to be able to land on the dasboard, and click around to easily understand how to use the application.
+3. As a user, I want to be able to land on the dasboard, and be able to add a transaction.
 ![Dashboard Page](git-hub-images/user-dashboard.jpg)
 
-4. As a user, I want to easily create new budget categories and sub-categories and enter the amounts I plan to spend for each. I also want to be able to see the budgeted and actual spent for each.
+4. As a user, I want to easily create new budget categories.
 ![Budget Page](git-hub-images/budget-page.jpg)
 
-5. As a user, I want to enter transactions and assign them to my categories and see a history of them. Those transactions, should automatically transfer to the budget page and add to the correct category/subcategory spent totals.
+5. As a user, I want to create new subcategories and assign a monthly budget for each.
 ![Transactions Page](git-hub-images/transactions-page.jpg)
 
-6. As a user, I want to see a chart showing totals for each category so I can get a quick visual of where my money is spent.
+6. As a user, I want to see a summary of my budgeted expenses/incomes by subcategory and also a history of my transactions with totals.
 ![Chart Page](git-hub-images/chart-page.jpg)
 
 # Technical stack
@@ -58,20 +60,10 @@ As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUST
  * Passport
  * Bcrypt
 
- ## NODE command lines
-* npm install ==> install all node modules
-* nodemon server.js ==> run node server
-* npm test ==> run the tests
-
-# Development Roadmap
-???
-
 ### Version 1.1
- *Add login feature so user can save their own collections of cards
- *Add feature that will allow user to click a card and temporarily save it to a side bar in order to better communicate what the user wants or needs
- *Add button at the top of the show all page that will show all edit buttons, otherwise hide all edit buttons
- *Allow users to capture their own images and add to app
-  *Give options for user to change the background and card colors
+ *Add option on the top to view budget by month
+ *Users will be able to view their total expenses and income by month
+ *Allow option for users to edit subcategory budgeted amounts directly
 
 #  The typical command lines for capstone projects
 
