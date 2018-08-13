@@ -6,12 +6,12 @@ Live Pre-view available at https://budgeting-app-node-capstone.herokuapp.com/
 This is a simple budgeting app where someone can create their own spending categories and subcategories for their budget each month and track expenses.
 
 # Screenshots
-[image1](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/landing-page-ss.png)
-[Sign-Up Page](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/sign-up-page-ss.png)
-[Add Transaction](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-transaction-ss.png)
-[Add Category](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-category-ss.png)
-[Add Subcategory](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-subcategory-ss.png)
-[View Budget & Transactions](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/view-budget-transactions-ss.png)
+![Landing Page](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/landing-page-ss.png)
+![Sign-up page](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/sign-up-page-ss.png)
+![Add Transaction](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-transaction-ss.png)
+![Add Category](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-category-ss.png)
+![Add Subcategory](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-subcategory-ss.png)
+![View Budget & Transactions](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/view-budget-transactions-ss.png)
 # User Stories & Initial UX
 As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUSTIFICATION}.'
 ![UI Flow](git-hub-images/ui-flow.jpg)
@@ -24,16 +24,16 @@ As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUST
 ![Sign-Up Page](git-hub-images/signup-page.jpg)
 
 3. As a user, I want to be able to land on the dasboard, and be able to add a transaction.
-![Dashboard Page](git-hub-images/user-dashboard.jpg)
+![Dashboard Page](git-hub-images/transactions-page.jpg)
 
 4. As a user, I want to easily create new budget categories.
-![Budget Page](git-hub-images/budget-page.jpg)
+![Budget Page](git-hub-images/add-category.jpg)
 
 5. As a user, I want to create new subcategories and assign a monthly budget for each.
-![Transactions Page](git-hub-images/transactions-page.jpg)
+![Transactions Page](git-hub-images/add-subcategory.jpg)
 
 6. As a user, I want to see a summary of my budgeted expenses/incomes by subcategory and also a history of my transactions with totals.
-![Chart Page](git-hub-images/chart-page.jpg)
+![Chart Page](git-hub-images/budget-page.jpg)
 
 # Technical stack
 
