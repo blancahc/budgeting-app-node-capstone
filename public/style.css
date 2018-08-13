@@ -20,10 +20,10 @@ html {
 
 .textBox {
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     opacity: .9;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto 30px auto;
     text-align: center;
 }
@@ -32,7 +32,7 @@ html {
 #mainImg {
     display: inline-block;
     border-radius: 8px;
-    width: 60%;
+    width: 40%;
 }
 
 h1 {
@@ -69,7 +69,7 @@ button:hover {
     margin: 0 auto 30px auto;
     background-color: #FFFF;
     color: #0E2E45;
-    max-width: 400px;
+    max-width: 350px;
     border: black solid 1px;
     border-radius: 7px;
     font-size: 1.3rem;
@@ -87,7 +87,7 @@ button:hover {
     margin: 10px auto;
     padding: 10px;
     border-bottom: #0E2E45 solid 1px;
-    width: 85%;
+    width: 100%;
     font-size: 2rem;
 }
 
@@ -124,7 +124,7 @@ button:hover {
 /******NAVIGATION STYLES******/
 
 #iconImg {
-    width: 150px;
+    width: 110px;
     opacity: .8;
     border-radius: 7px;
 }
@@ -134,6 +134,7 @@ button:hover {
     opacity: .9;
     margin: -10px auto 30px auto;
     text-align: center;
+    max-width: 800px;
 }
 
 .navbar ul {
@@ -146,6 +147,7 @@ button:hover {
     display: inline-block;
     padding-right: 20px;
     font-size: 1.2rem;
+    vertical-align: middle;
 }
 
 .nav-options a {
@@ -162,7 +164,7 @@ button:hover {
     border-radius: 7px;
     padding: 5px;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 #signoutButton:hover {
@@ -180,7 +182,7 @@ button:hover {
 
 .displayBudget {
     background-color: black;
-    max-width: 1000px;
+    max-width: 500px;
     margin: 0 auto 30px auto;
     text-align: center;
     color: white;
@@ -211,7 +213,7 @@ div.paleBlueRows {
     font-family: "Times New Roman", Times, serif;
     border: 1px solid #FFFFFF;
     background-color: #CECECE;
-    max-width: 1000px;
+    max-width: 800px;
     height: 200px;
     text-align: center;
     border-collapse: collapse;
@@ -224,7 +226,7 @@ div.paleBlueRows {
 }
 
 .divTable.paleBlueRows .divTableBody .divTableCell {
-    font-size: 13px;
+    font-size: 14px;
     color: #000000;
 }
 
@@ -265,7 +267,7 @@ div.paleBlueRows {
 
 .divTable {
     display: table;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto 30px auto;
     border-radius: 8px;
 }
@@ -306,6 +308,7 @@ div.paleBlueRows {
     background-color: white;
     opacity: .9;
     margin: -30px auto 30px auto;
+    max-width: 800px;
 
 }
 
@@ -327,11 +330,10 @@ div.paleBlueRows {
 
 .add-to-budget-form {
     vertical-align: middle;
-    font-weight: 600;
     margin: 0 auto 30px auto;
     background-color: #FFFF;
     color: #0E2E45;
-    max-width: 400px;
+    max-width: 350px;
     border: black solid 1px;
     border-radius: 7px;
     font-size: 1.3rem;
@@ -394,6 +396,10 @@ option {
     padding: 8px;
 }
 
+#js-form-category {
+    margin-bottom: 250px;
+}
+
 /******Footer STYLE******/
 
 footer {
@@ -401,19 +407,139 @@ footer {
     background-color: black;
     color: white;
     border-radius: 8px;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     opacity: .9;
     padding: 10px;
+    max-width: 800px;
+    bottom: 0;
+    height: 60px;
+
 }
 
-@media only screen and (max-width: 600px) {
-    .navbar ul > li {
+/******Media Queries******/
+
+@media only screen and (max-width: 750px) {
+    .navbar {
         width: 100%;
     }
-}
+    footer {
+        width: 100%
+    }
 
-@media only screen and (max-width: 500px) {
     #add-to-budget-options li {
         width: 100%;
     }
+
+    html {
+        font-size: 70%;
+    }
+
+    .formMessage {
+        font-size: 1.1rem;
+    }
+
+}
+
+.displayBudget {
+    background-color: black;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+
+}
+
+.hint {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    opacity: .9;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    font-size: .8rem;
+}
+
+}
+
+@media only screen and (max-width: 512px) {
+    .navbar {
+        width: 100%;
+    }
+    .navbar ul > li {
+        width: 100%;
+    }
+
+    #add-to-budget-options {
+        width: 100%;
+    }
+
+    footer {
+        width: 100%
+    }
+
+    #add-to-budget-options li {
+        width: 100%;
+    }
+
+    html {
+        font-size: 60%;
+    }
+
+    .formMessage {
+        font-size: 1.1rem;
+    }
+    .hint {
+        font-size: 1.1rem;
+    }
+
+    #add-to-budget-options {
+        width: 100%;
+    }
+
+    footer {
+        width: 100%
+    }
+
+    #add-to-budget-options li {
+        width: 100%;
+    }
+
+    html {
+        font-size: 60%;
+    }
+
+    .formMessage {
+        font-size: 1.1rem;
+    }
+    .hint {
+        font-size: 1.1rem;
+    }
+
+    .divTable.paleBlueRows .divTableBody .divTableCell {
+        font-size: 10px;
+        color: #000000;
+    }
+
+    .divTable.paleBlueRows .divTableHeading .divTableHead {
+        font-size: 12px;
+        font-weight: bold;
+        color: #FFFFFF;
+        text-align: center;
+        border-left: 2px solid #FFFFFF;
+    }
+
+    .paleBlueRows .tableFootStyle {
+        font-size: 10px;
+        font-weight: bold;
+        color: #333333;
+        background: #228B22;
+        border-top: 3px solid #444444;
+    }
+
+    .paleBlueRows .tableFootStyle {
+        font-size: 10px;
+    }
+
 }
