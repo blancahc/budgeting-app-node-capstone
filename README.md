@@ -13,7 +13,6 @@ This is a simple budgeting app where someone can create their own spending categ
 ![Add Subcategory](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/add-subcategory-ss.png)
 ![View Budget & Transactions](https://github.com/blancahc/budgeting-app-node-capstone/blob/master/git-hub-images/view-budget-transactions-ss.png)
 # User Stories & Initial UX
-As a {USER TYPE}, I want to {BUSINESS FUNCTIONALITY}, in order to {BUSINESS JUSTIFICATION}.'
 ![UI Flow](git-hub-images/ui-flow.jpg)
 **Landing Page**
 
