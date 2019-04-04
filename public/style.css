@@ -86,7 +86,7 @@ button:hover {
 .sign-in-up-form legend {
     margin: 10px auto;
     padding: 10px;
-    border-bottom: #0E2E45 solid 1px;
+    border-bottom: #0E2E45 solid;
     width: 100%;
     font-size: 2rem;
 }
@@ -201,15 +201,7 @@ button:hover {
     font-size: .8rem;
 }
 
-.myInput {
-    width: 600px;
-    font-size: 15px;
-    padding: 5px;
-    border: 1px solid gray;
-    margin-bottom: 12px;
-}
-
-div.paleBlueRows {
+div.tableRows {
     font-family: "Times New Roman", Times, serif;
     border: 1px solid #FFFFFF;
     background-color: #CECECE;
@@ -219,51 +211,54 @@ div.paleBlueRows {
     border-collapse: collapse;
 }
 
-.divTable.paleBlueRows .divTableCell,
-.divTable.paleBlueRows .divTableHead {
+.divTable.tableRows .divTableCell,
+.divTable.tableRows .divTableHead {
     border: 1px solid #FFFFFF;
-    padding: 3px 2px;
+    padding: 10px;
 }
 
-.divTable.paleBlueRows .divTableBody .divTableCell {
+.divTable.tableRows .divTableBody .divTableCell {
     font-size: 14px;
     color: #000000;
+    padding: 10px;
 }
 
-.divTable.paleBlueRows .divTableRow:nth-child(even) {
+.divTable.tableRows .divTableRow:nth-child(even) {
     background: #228B22;
 }
 
-.divTable.paleBlueRows .divTableHeading {
+.divTable.tableRows .divTableHeading {
     background: #228B22;
     border-bottom: 5px solid #FFFFFF;
 }
 
-.divTable.paleBlueRows .divTableHeading .divTableHead {
+.divTable.tableRows .divTableHeading .divTableHead {
     font-size: 17px;
     font-weight: bold;
     color: #FFFFFF;
     text-align: center;
     border-left: 2px solid #FFFFFF;
+    padding: 10px;
 }
 
-.divTable.paleBlueRows .divTableHeading .divTableHead:first-child {
+.divTable.tableRows .divTableHeading .divTableHead:first-child {
     border-left: none;
 }
 
-.paleBlueRows .tableFootStyle {
+.tableRows .tableFootStyle {
     font-size: 14px;
     font-weight: bold;
     color: #333333;
     background: #228B22;
     border-top: 3px solid #444444;
+    padding: 10px;
 }
 
-.paleBlueRows .tableFootStyle {
+.tableRows .tableFootStyle {
     font-size: 14px;
+    padding: 10px;
 }
 
-/* DivTable.com */
 
 .divTable {
     display: table;
@@ -492,12 +487,13 @@ footer {
         font-size: 1.1rem;
     }
 
-    .divTable.paleBlueRows .divTableBody .divTableCell {
+    .divTable.tableRows .divTableBody .divTableCell {
         font-size: 10px;
         color: #000000;
+        padding: 3px 2px;
     }
 
-    .divTable.paleBlueRows .divTableHeading .divTableHead {
+    .divTable.tableRows .divTableHeading .divTableHead {
         font-size: 12px;
         font-weight: bold;
         color: #FFFFFF;
@@ -505,7 +501,7 @@ footer {
         border-left: 2px solid #FFFFFF;
     }
 
-    .paleBlueRows .tableFootStyle {
+    .tableRows .tableFootStyle {
         font-size: 10px;
         font-weight: bold;
         color: #333333;
@@ -513,7 +509,7 @@ footer {
         border-top: 3px solid #444444;
     }
 
-    .paleBlueRows .tableFootStyle {
+    .tableRows .tableFootStyle {
         font-size: 10px;
     }
 

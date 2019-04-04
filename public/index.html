@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/eye-budget-favicon.PNG" />
 </head>
 
 <body>
@@ -81,7 +82,7 @@
     <main role="main" id="js-view-budget" aria-live="assertive">
         <h2 class="displayBudget">Monthly Budget</h2>
         <p class="hint">Hint: To change budget amount, delete from this table and go to "Add to My Budget" > "Add Subcategory" and add same subcategory name with different monthly budget amount.</p>
-        <div class="divTable paleBlueRows">
+        <div class="divTable tableRows">
             <div class="divTableHeading">
                 <div class="divTableRow">
                     <div class="divTableHead">Subcategory</div>
@@ -103,7 +104,7 @@
 
         <h2 class="displayBudget">Spent / Transaction History</h2>
         <div id="displayTransactionHistory"></div>
-        <div class="divTable paleBlueRows" id="transactionTable">
+        <div class="divTable tableRows" id="transactionTable">
             <div class="divTableHeading">
                 <div class="divTableRow">
                     <div class="divTableHead">Category</div>
@@ -128,13 +129,13 @@
             <li><a href="#" id="js-nav-add-subcategory">+ Subcategory</a></li>
         </ul>
         <div id="js-added-to-budget">
-            <h3 class='textBox'>Added!</h3>
+            <h3 class="textBox">Added!</h3>
         </div>
         <form id="js-form-category" class="add-to-budget-form">
             <legend>Add Category</legend>
             <fieldset>
                 <label for="categoryName">Create Category Name</label>
-                <input type="name" id="categoryName" placeholder='i.e."Shopping"'>
+                <input type="name" id="categoryName" placeholder="i.e.'Shopping'">
             </fieldset>
             <button type="submit" class="submit-button">Add</button>
         </form>
@@ -143,7 +144,7 @@
             <legend>Add Subcategory</legend>
             <fieldset>
                 <label for="subcategoryName">Create Subcategory Name</label>
-                <input type="name" id="subcategoryName" placeholder='i.e."Clothes"'>
+                <input type="name" id="subcategoryName" placeholder="i.e.'Clothes'">
                 <label for="categorybelongs">Select Category it Belongs To</label>
                 <select name="subcategorybelongs" id="categoryBelongs" class="subcategory">
            <option value="Medical">Medical</option>
@@ -154,11 +155,11 @@
                 <div class="radio-btns">
                     <div class="ui radio checkbox">
                         <label for="negative">Expense (-)</label>
-                        <input type="radio" name='subcategory-radio' class="negative" value="Expense" checked="checked">
+                        <input type="radio" name="subcategory-radio" class="negative" value="Expense" checked="checked">
                     </div>
                     <div class="ui radio checkbox">
                         <label for="positive">Income (+)</label>
-                        <input type="radio" name='subcategory-radio' class="positive" value="Income">
+                        <input type="radio" name="subcategory-radio" class="positive" value="Income">
                     </div>
                 </div>
             </fieldset>
