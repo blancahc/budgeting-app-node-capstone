@@ -228,7 +228,7 @@ $(document).on('click', '#js-sign-up-link', function (event) {
 });
 
 //Submit Sign Up Form
-$(`#js-sign-up-form`).on('submit', function (event) {
+$('#js-sign-up-form').on('submit', function (event) {
     event.preventDefault();
 
     //take the input from the user
