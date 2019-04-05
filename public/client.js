@@ -1,7 +1,6 @@
 //Defined functions and objects
 function displayCategoryDropdownForSubcategory() {
 	const username = $('#loggedInUserName').val();
-	console.log(username);
 	$.ajax({
 			type: 'GET',
 			url: '/category/get/' + username,
@@ -9,17 +8,16 @@ function displayCategoryDropdownForSubcategory() {
 			contentType: 'application/json'
 		})
 		.done(function (result) {
-			console.log(result);
-			if ((!result) || (result != undefined) || (result != "")) {
+			if ((!result) || (result != undefined) || (result != '')) {
 
-				$("#categoryBelongs").html('');
-				var buildCategoryDropdownOutput = "";
+				$('#categoryBelongs').html('');
+				var buildCategoryDropdownOutput = '';
 				buildCategoryDropdownOutput += '<option value="addCategory">select a category</option>';
 				$.each(result, function (resultKey, resultValue) {
 					buildCategoryDropdownOutput += '<option value="' + resultValue.categoryName + '">' + resultValue.categoryName + '</option>';
 				});
 				//use the HTML output to show it in the index.html
-				$("#categoryBelongs").html(buildCategoryDropdownOutput);
+				$('#categoryBelongs').html(buildCategoryDropdownOutput);
 			}
 		})
 		.fail(function (jqXHR, error, errorThrown) {
@@ -31,7 +29,6 @@ function displayCategoryDropdownForSubcategory() {
 
 function displayCategoryDropdownForTransaction() {
 	const username = $('#loggedInUserName').val();
-	console.log(username);
 	$.ajax({
 			type: 'GET',
 			url: '/category/get/' + username,
@@ -39,17 +36,16 @@ function displayCategoryDropdownForTransaction() {
 			contentType: 'application/json'
 		})
 		.done(function (result) {
-			console.log(result);
-			if ((!result) || (result != undefined) || (result != "")) {
+			if ((!result) || (result != undefined) || (result != '')) {
 
-				$("#transactionCategory").html('');
-				var buildCategoryDropdownOutput = "";
+				$('#transactionCategory').html('');
+				var buildCategoryDropdownOutput = '';
 				buildCategoryDropdownOutput += '<option value="addCategory">select a category</option>';
 				$.each(result, function (resultKey, resultValue) {
 					buildCategoryDropdownOutput += '<option value="' + resultValue.categoryName + '">' + resultValue.categoryName + '</option>';
 				});
 				//use the HTML output to show it in the index.html
-				$("#transactionCategory").html(buildCategoryDropdownOutput);
+				$('#transactionCategory').html(buildCategoryDropdownOutput);
 			}
 		})
 		.fail(function (jqXHR, error, errorThrown) {
@@ -61,7 +57,6 @@ function displayCategoryDropdownForTransaction() {
 
 function displaySubcategoryDropdownForTransaction() {
 	const username = $('#loggedInUserName').val();
-	console.log(username);
 	$.ajax({
 			type: 'GET',
 			url: '/subcategory/get/' + username,
@@ -69,17 +64,16 @@ function displaySubcategoryDropdownForTransaction() {
 			contentType: 'application/json'
 		})
 		.done(function (result) {
-			console.log(result);
-			if ((!result) || (result != undefined) || (result != "")) {
+			if ((!result) || (result != undefined) || (result != '')) {
 
-				$("#transactionSubcategoryName").html('');
-				var buildSubcategoryDropdownOutput = "";
+				$('#transactionSubcategoryName').html('');
+				var buildSubcategoryDropdownOutput = '';
 				buildSubcategoryDropdownOutput += '<option value="addSubcategory">select a subcategory</option>';
 				$.each(result, function (resultKey, resultValue) {
 					buildSubcategoryDropdownOutput += '<option value="' + resultValue.subcategoryName + '">' + resultValue.subcategoryName + '</option>';
 				});
 				//use the HTML output to show it in the index.html
-				$("#transactionSubcategoryName").html(buildSubcategoryDropdownOutput);
+				$('#transactionSubcategoryName').html(buildSubcategoryDropdownOutput);
 			}
 		})
 		.fail(function (jqXHR, error, errorThrown) {
@@ -93,7 +87,6 @@ function displaySubcategoryDropdownForTransaction() {
 
 function displaySubcategorySummary() {
 	const username = $('#loggedInUserName').val();
-	console.log(username);
 	$.ajax({
 			type: 'GET',
 			url: '/subcategory/get/' + username,
@@ -101,11 +94,10 @@ function displaySubcategorySummary() {
 			contentType: 'application/json'
 		})
 		.done(function (result) {
-			console.log(result);
-			if ((!result) || (result != undefined) || (result != "")) {
+			if ((!result) || (result != undefined) || (result != '')) {
 
-				$("#subcategorySummary").html('');
-				var buildBudgetSummary = "";
+				$('#subcategorySummary').html('');
+				var buildBudgetSummary = '';
 				var incomeBudgetTotal = 0;
 				var expenseBudgetTotal = 0;
 
@@ -120,26 +112,25 @@ function displaySubcategorySummary() {
 					buildBudgetSummary += '</button>';
 					buildBudgetSummary += '</form>';
 					buildBudgetSummary += '</div>';
-					//                    buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.subcategoryName + '</div>';
 					buildBudgetSummary += '<div class = "divTableCell" >' + resultValue.budgetSubcategoryAmount + '</div>';
 					buildBudgetSummary += '</div>';
-					if (resultValue.incomeExpense == "Expense") {
+					if (resultValue.incomeExpense == 'Expense') {
 						expenseBudgetTotal = expenseBudgetTotal + resultValue.budgetSubcategoryAmount;
 					} else {
 						incomeBudgetTotal = incomeBudgetTotal + resultValue.budgetSubcategoryAmount;
 					}
 				});
 				//use the HTML output to show it in the index.html
-				$("#subcategorySummary").html(buildBudgetSummary);
+				$('#subcategorySummary').html(buildBudgetSummary);
 			}
 
-			$("#budgetTotals").html('');
-			var buildBudgetTotals = "";
+			$('#budgetTotals').html('');
+			var buildBudgetTotals = '';
 			buildBudgetTotals += '<div class="divTableRow">';
 			buildBudgetTotals += '<div class="divTableCell">Monthly Budgeted Income Total:</br>' + incomeBudgetTotal.toFixed(2) + '</div>';
 			buildBudgetTotals += '<div class="divTableCell">Monthly Budgeted Expense Total:</br> ' + expenseBudgetTotal.toFixed(2) + '</div>';
 			buildBudgetTotals += '</div>';
-			$("#budgetTotals").html(buildBudgetTotals);
+			$('#budgetTotals').html(buildBudgetTotals);
 		})
 		.fail(function (jqXHR, error, errorThrown) {
 			console.log(jqXHR);
@@ -150,7 +141,6 @@ function displaySubcategorySummary() {
 
 function displayTransactionHistory() {
 	const username = $('#loggedInUserName').val();
-	console.log(username);
 	$.ajax({
 			type: 'GET',
 			url: '/transaction/get/' + username,
@@ -158,10 +148,10 @@ function displayTransactionHistory() {
 			contentType: 'application/json'
 		})
 		.done(function (result) {
-			if ((!result) || (result != undefined) || (result != "")) {
+			if ((!result) || (result != undefined) || (result != '')) {
 
-				$("#transactionRows").html('');
-				var buildTransactionHistory = "";
+				$('#transactionRows').html('');
+				var buildTransactionHistory = '';
 				var expenseTotal = 0;
 
 				var incomeTotal = 0;
@@ -184,7 +174,7 @@ function displayTransactionHistory() {
 					buildTransactionHistory += '<div class = "divTableCell" id="transactionAmt">' + resultValue.transactionAmount + '</div>';
 					buildTransactionHistory += '<div class = "divTableCell" >' + resultValue.incomeExpenseTransaction + '</div>';
 					buildTransactionHistory += '</div>';
-					if (resultValue.incomeExpenseTransaction == "Expense") {
+					if (resultValue.incomeExpenseTransaction == 'Expense') {
 						expenseTotal = expenseTotal + resultValue.transactionAmount;
 					} else {
 						incomeTotal = incomeTotal + resultValue.transactionAmount;
@@ -192,10 +182,10 @@ function displayTransactionHistory() {
 					difference = incomeTotal - expenseTotal;
 				});
 				//use the HTML output to show it in the index.html
-				$("#transactionRows").html(buildTransactionHistory);
+				$('#transactionRows').html(buildTransactionHistory);
 			}
-			$("#expenseIncomeTotals").html('');
-			var buildIncomeExpenseTotals = "";
+			$('#expenseIncomeTotals').html('');
+			var buildIncomeExpenseTotals = '';
 			buildIncomeExpenseTotals += '<div class="divTableRow">';
 			buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
 			buildIncomeExpenseTotals += '<div class="divTableCell" id="totalExpenses">Total Expenses:</br> ' + expenseTotal.toFixed(2) + '</div>';
@@ -203,7 +193,7 @@ function displayTransactionHistory() {
 			buildIncomeExpenseTotals += '<div class="divTableCell">Difference:</br>' + difference.toFixed(2) + '</div>';
 			buildIncomeExpenseTotals += '<div class="divTableCell"></div>';
 			buildIncomeExpenseTotals += '</div>';
-			$("#expenseIncomeTotals").html(buildIncomeExpenseTotals);
+			$('#expenseIncomeTotals').html(buildIncomeExpenseTotals);
 		})
 		.fail(function (jqXHR, error, errorThrown) {
 			console.log(jqXHR);
@@ -216,8 +206,8 @@ function displayTransactionHistory() {
 
 //when the page loads...
 $(document).ready(function () {
-	$("main").hide();
-	$("#js-landing-page").show();
+	$('main').hide();
+	$('#js-landing-page').show();
 });
 
 //When you click on "Sign Up" link, show Sign Up Form
@@ -228,20 +218,20 @@ $(document).on('click', '#js-sign-up-link', function (event) {
 });
 
 //Submit Sign Up Form
-$(`#js-sign-up-form`).on('submit', function (event) {
+$('#js-sign-up-form').on('submit', function (event) {
 	event.preventDefault();
 
 	//take the input from the user
-	const name = $("#signUpName").val();
-	const username = $("#signUpUsername").val();
-	const password = $("#signUpPassword").val();
+	const name = $('#signUpName').val();
+	const username = $('#signUpUsername').val();
+	const password = $('#signUpPassword').val();
 
 	//validate the input
-	if (name == "") {
+	if (name == '') {
 		alert('Please add a name');
-	} else if (username == "") {
+	} else if (username == '') {
 		alert('Please add an user name');
-	} else if (password == "") {
+	} else if (password == '') {
 		alert('Please add a password');
 	}
 	//if the input is valid
@@ -264,14 +254,13 @@ $(`#js-sign-up-form`).on('submit', function (event) {
 			})
 			//if call is succefull
 			.done(function (result) {
-				console.log(result);
 				$('#loggedInUserName').val(result.username);
-				$("main").hide();
-				$("form").hide();
-				$("#js-navigation").show();
+				$('main').hide();
+				$('form').hide();
+				$('#js-navigation').show();
 				$('#js-added-to-budget').hide();
-				$("#js-add-to-budget-page").show();
-				$("#js-form-category").show();
+				$('#js-add-to-budget-page').show();
+				$('#js-form-category').show();
 
 			})
 			//if the call is failing
@@ -294,13 +283,13 @@ $(`#js-sign-in-form`).on('submit', function (event) {
 
 
 	//take the input from the user
-	const username = $("#loginUsername").val();
-	const password = $("#loginPassword").val();
+	const username = $('#loginUsername').val();
+	const password = $('#loginPassword').val();
 
 	//validate the input
-	if (username == "") {
+	if (username == '') {
 		alert('Please input user name');
-	} else if (password == "") {
+	} else if (password == '') {
 		alert('Please input password');
 	}
 	//if the input is valid
@@ -325,7 +314,6 @@ $(`#js-sign-in-form`).on('submit', function (event) {
 				$('#loggedInUserName').val(result.username);
 				displayCategoryDropdownForTransaction();
 				displaySubcategoryDropdownForTransaction();
-				console.log(result);
 				$('main').hide();
 				$('form').hide();
 				$('#js-added-to-budget').hide();
@@ -352,21 +340,21 @@ $('#js-nav-add-category').on('click', function (event) {
 	$('main').hide();
 	$('form').hide();
 	$('#js-added-to-budget').hide();
-	$("#js-form-category").show();
-	$("#js-navigation").show();
-	$("#js-add-to-budget-page").show();
+	$('#js-form-category').show();
+	$('#js-navigation').show();
+	$('#js-add-to-budget-page').show();
 });
 //Submit Add category Form
-$(`#js-form-category`).on('submit', function (event) {
+$('#js-form-category').on('submit', function (event) {
 	event.preventDefault();
 
 
 	//take the input from the user
-	const categoryName = $("#categoryName").val();
+	const categoryName = $('#categoryName').val();
 	const username = $('#loggedInUserName').val();
 
 	//validate the input
-	if (categoryName == "") {
+	if (categoryName == '') {
 		alert('Please add a category name');
 	}
 	//if the input is valid
@@ -388,11 +376,10 @@ $(`#js-form-category`).on('submit', function (event) {
 			})
 			//if call is succefull
 			.done(function (result) {
-				console.log(result);
 				$('main').hide();
 				$('form').hide();
-				$("#js-navigation").show();
-				$("#js-add-to-budget-page").show();
+				$('#js-navigation').show();
+				$('#js-add-to-budget-page').show();
 				$('#js-added-to-budget').show();
 			})
 			//if the call is failing
@@ -405,7 +392,7 @@ $(`#js-form-category`).on('submit', function (event) {
 });
 
 //Click on Add subcategory sub nav menu uption
-$('#js-nav-add-subcategory').on("click", function (event) {
+$('#js-nav-add-subcategory').on('click', function (event) {
 	event.preventDefault();
 	displayCategoryDropdownForSubcategory();
 	$('main').hide();
@@ -413,28 +400,28 @@ $('#js-nav-add-subcategory').on("click", function (event) {
 	$('#js-added-to-budget').hide();
 	$('#js-added-to-budget').hide();
 	$('#navigation').show();
-	$("#js-form-subcategory").show();
-	$("#js-navigation").show();
-	$("#js-add-to-budget-page").show();
+	$('#js-form-subcategory').show();
+	$('#js-navigation').show();
+	$('#js-add-to-budget-page').show();
 });
 //Submit Add subcategory Form
-$(`#js-form-subcategory`).on('submit', function (event) {
+$('#js-form-subcategory').on('submit', function (event) {
 	event.preventDefault();
 
 
 	//take the input from the user
-	const subcategoryName = $("#subcategoryName").val();
-	const categoryBelongstoName = $("#categoryBelongs").val();
-	const budgetSubcategoryAmount = $("#bugetsubcategory").val();
-	const incomeExpense = $("input[name='subcategory-radio']:checked").val();
+	const subcategoryName = $('#subcategoryName').val();
+	const categoryBelongstoName = $('#categoryBelongs').val();
+	const budgetSubcategoryAmount = $('#bugetsubcategory').val();
+	const incomeExpense = $('input[name="subcategory-radio"]:checked').val();
 	const username = $('#loggedInUserName').val();
 
 	//validate the input
-	if (subcategoryName == "") {
+	if (subcategoryName == '') {
 		alert('Please add a subcategory name');
-	} else if (categoryBelongstoName == "") {
+	} else if (categoryBelongstoName == '') {
 		alert('Please add the category it belongs to');
-	} else if (budgetSubcategoryAmount == "") {
+	} else if (budgetSubcategoryAmount == '') {
 		alert('Please add a budget');
 
 	}
@@ -460,11 +447,10 @@ $(`#js-form-subcategory`).on('submit', function (event) {
 			})
 			//if call is succefull
 			.done(function (result) {
-				console.log(result);
 				$('main').hide();
 				$('form').hide();
-				$("#js-navigation").show();
-				$("#js-add-to-budget-page").show();
+				$('#js-navigation').show();
+				$('#js-add-to-budget-page').show();
 				$('#js-added-to-budget').show();
 			})
 			//if the call is failing
@@ -495,21 +481,21 @@ $(`#js-form-transaction`).on('submit', function (event) {
 	event.preventDefault();
 
 	//take the input from the user
-	const transactionCategoryName = $("#transactionCategory").val();
-	const transactionSubcategoryName = $("#transactionSubcategoryName").val();
-	const transactionMonthName = $("#transactionMonth").val();
-	const transactionAmount = $("#transactionAmount").val();
-	const incomeExpenseTransaction = $("input[name='transaction-radio']:checked").val();
+	const transactionCategoryName = $('#transactionCategory').val();
+	const transactionSubcategoryName = $('#transactionSubcategoryName').val();
+	const transactionMonthName = $('#transactionMonth').val();
+	const transactionAmount = $('#transactionAmount').val();
+	const incomeExpenseTransaction = $('input[name="transaction-radio"]:checked').val();
 	const username = $('#loggedInUserName').val();
 
 	//validate the input
-	if (transactionCategoryName == "") {
+	if (transactionCategoryName == '') {
 		alert('Please select a Category for this transaction');
-	} else if (transactionSubcategoryName == "") {
+	} else if (transactionSubcategoryName == '') {
 		alert('Please select a Subcategory for this transaction');
-	} else if (transactionMonthName == "") {
+	} else if (transactionMonthName == '') {
 		alert('Please select a month for this transaction');
-	} else if (transactionAmount == "") {
+	} else if (transactionAmount == '') {
 		alert('Please enter a transaction amount');
 	}
 	//if the input is valid**************************************left here*********************
@@ -523,8 +509,7 @@ $(`#js-form-transaction`).on('submit', function (event) {
 			incomeExpenseTransaction: incomeExpenseTransaction,
 			username: username
 		};
-		console.log(newTransactionObject);
-
+	
 		//make the api call using the payload above
 		$.ajax({
 				type: 'POST',
@@ -535,11 +520,10 @@ $(`#js-form-transaction`).on('submit', function (event) {
 			})
 			//if call is succefull
 			.done(function (result) {
-				console.log(result);
 				$('main').hide();
 				$('form').hide();
-				$("#js-navigation").show();
-				$("#js-add-to-budget-page").show();
+				$('#js-navigation').show();
+				$('#js-add-to-budget-page').show();
 				$('#js-added-to-budget').show();
 			})
 			//if the call is failing
